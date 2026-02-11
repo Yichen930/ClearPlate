@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Automatic Tray Return System - ClearPlate</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#4cae4f",
+                        "background-light": "#f6f7f6",
+                        "background-dark": "#0a0c0a",
+                        "scanning": "#00ff41"
+                    },
+                    fontFamily: {
+                        "display": ["Epilogue"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        body {
+            min-height: max(884px, 100dvh);
+        }
+        .scanning-gradient {
+            background: linear-gradient(180deg, rgba(0, 255, 65, 0) 0%, rgba(0, 255, 65, 0.2) 50%, rgba(0, 255, 65, 0) 100%);
+        }
+        .glass-panel {
+            @apply bg-black/40 backdrop-blur-xl border border-white/10;
+        }
+        .scan-line {
+            box-shadow: 0 0 15px 2px rgba(0, 255, 65, 0.5);
+        }
+        .nav-glass {
+            @apply bg-black/60 backdrop-blur-2xl border-t border-white/10;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-display bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 antialiased overflow-hidden">
+<div class="relative h-screen w-full max-w-[430px] mx-auto bg-black overflow-hidden shadow-2xl flex flex-col">
+<div class="absolute inset-0 z-0">
+<img alt="A cafeteria tray on a conveyor belt" class="w-full h-full object-cover grayscale-[20%] contrast-125" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMHkf4IsaZmr3SzSiUe8AQxSLci-R3BCQPW4HTXD_RRXriAwjzUGZQy0ey7ekIOlZTG_XALfFHVUGDMEscpFRshm6wCO2F5aWIj_fvVuqeeN91lM3qAbKuOauT3cYOgrSAPkMtWA2IXw15bzouaxll3t_bFO9rCFMQ3iBTBygNjBEBuC332zEzekxI5KtInshRdoFuyG6Ybn2zjf4RwRdq41TdAqdsly9c-EXk1Of3NQNsJsK8EekGTg8WkWMyanBm1oOdctwgcjuJ"/>
+<div class="absolute inset-x-0 top-1/3 bottom-1/3 scanning-gradient border-y border-scanning/30"></div>
+<div class="absolute top-1/3 left-0 right-0 h-[2px] bg-scanning/50 scan-line"></div>
+</div>
+<div class="absolute top-0 left-0 right-0 z-40 p-6 pt-14 flex justify-between items-center bg-gradient-to-b from-black/80 to-transparent">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-scanning animate-pulse shadow-[0_0_8px_#00ff41]"></div>
+<span class="text-white text-xs font-bold uppercase tracking-[0.2em]">System Active</span>
+</div>
+<button class="w-10 h-10 flex items-center justify-center glass-panel rounded-full text-white/80 hover:text-white transition-colors">
+<span class="material-symbols-outlined text-[20px]">help_center</span>
+</button>
+</div>
+<div class="relative flex-1 z-20 flex flex-col justify-center px-6 pointer-events-none mt-[-60px]">
+<div class="relative w-full aspect-square border border-white/10 rounded-3xl mb-12">
+<div class="absolute -top-1 -left-1 w-6 h-6 border-t-2 border-l-2 border-scanning"></div>
+<div class="absolute -top-1 -right-1 w-6 h-6 border-t-2 border-r-2 border-scanning"></div>
+<div class="absolute -bottom-1 -left-1 w-6 h-6 border-b-2 border-l-2 border-scanning"></div>
+<div class="absolute -bottom-1 -right-1 w-6 h-6 border-b-2 border-r-2 border-scanning"></div>
+<div class="absolute top-4 left-4 flex flex-col gap-2">
+<div class="glass-panel px-3 py-1.5 rounded-lg flex items-center gap-2">
+<span class="material-symbols-outlined text-scanning text-sm">scale</span>
+<span class="text-white text-[10px] font-bold uppercase">12g detected</span>
+</div>
+</div>
+<div class="absolute -bottom-24 left-0 right-0 space-y-3">
+<div class="glass-panel p-3 rounded-2xl border-l-4 border-l-scanning flex items-center gap-4">
+<div class="w-6 h-6 flex items-center justify-center rounded-full bg-scanning/20 text-scanning text-[10px] font-bold">1</div>
+<div class="flex-1">
+<p class="text-white text-[11px] font-bold uppercase tracking-tight">Step 1: Automatic Scan</p>
+<p class="text-scanning text-[10px]">Processing vision metrics...</p>
+</div>
+<span class="material-symbols-outlined text-scanning text-sm">check_circle</span>
+</div>
+<div class="glass-panel p-3 rounded-2xl border-l-4 border-l-white/20 flex items-center gap-4">
+<div class="w-6 h-6 flex items-center justify-center rounded-full bg-white/10 text-white/40 text-[10px] font-bold">2</div>
+<div class="flex-1">
+<p class="text-white/60 text-[11px] font-bold uppercase tracking-tight">Step 2: Identifying User</p>
+<div class="flex items-center gap-1.5 mt-0.5">
+<span class="w-1 h-1 bg-white/40 rounded-full"></span>
+<p class="text-white/40 text-[10px]">Facial Recognition Active</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-white/20 text-sm">face</span>
+</div>
+</div>
+</div>
+</div>
+<div class="absolute right-4 top-1/4 z-30 flex flex-col gap-3 w-32">
+<p class="text-white/40 text-[9px] font-bold uppercase tracking-widest pl-1">Previous Plates</p>
+<div class="glass-panel p-2 rounded-xl flex flex-col gap-1 border-white/5">
+<div class="flex justify-between items-center">
+<span class="text-scanning text-[9px] font-bold">Assigned</span>
+<span class="text-white/40 text-[8px]">14:22</span>
+</div>
+<p class="text-white text-[10px] font-medium truncate">Alex Wong</p>
+</div>
+<div class="glass-panel p-2 rounded-xl flex flex-col gap-1 border-white/5 opacity-80">
+<div class="flex justify-between items-center">
+<span class="text-white/40 text-[9px] font-bold">Anonymous</span>
+<span class="text-white/40 text-[8px]">14:18</span>
+</div>
+<p class="text-white/40 text-[10px] font-medium truncate">Guest_092</p>
+</div>
+<div class="glass-panel p-2 rounded-xl flex flex-col gap-1 border-white/5 opacity-60">
+<div class="flex justify-between items-center">
+<span class="text-scanning text-[9px] font-bold">Assigned</span>
+<span class="text-white/40 text-[8px]">14:15</span>
+</div>
+<p class="text-white/40 text-[10px] font-medium truncate">Sarah Tan</p>
+</div>
+</div>
+<div class="relative z-40 mt-auto">
+<div class="flex flex-col items-center gap-2 mb-6 bg-gradient-to-t from-black/60 to-transparent pt-10">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-white/40 text-sm">bolt</span>
+<p class="text-white/60 text-[10px] font-medium uppercase tracking-[0.3em]">Instant Analysis &lt;3s</p>
+</div>
+<div class="h-0.5 w-16 bg-white/10 rounded-full relative overflow-hidden">
+<div class="absolute inset-y-0 left-0 w-2/3 bg-scanning shadow-[0_0_5px_#00ff41]"></div>
+</div>
+</div>
+<nav class="nav-glass px-8 pt-4 pb-10 flex justify-between items-center">
+<a class="flex flex-col items-center gap-1 group" href="#">
+<span class="material-symbols-outlined text-white/40 group-hover:text-primary transition-colors">home</span>
+<span class="text-[10px] text-white/40 font-medium group-hover:text-primary">Home</span>
+</a>
+<a class="flex flex-col items-center gap-1 group" href="#">
+<span class="material-symbols-outlined text-white/40 group-hover:text-primary transition-colors">analytics</span>
+<span class="text-[10px] text-white/40 font-medium group-hover:text-primary">Analytics</span>
+</a>
+<div class="flex flex-col items-center gap-1 -mt-8">
+<div class="w-14 h-14 rounded-full bg-primary flex items-center justify-center shadow-[0_0_20px_rgba(76,174,79,0.4)] border-4 border-black">
+<span class="material-symbols-outlined text-white text-[28px] fill-1">document_scanner</span>
+</div>
+<span class="text-[10px] text-primary font-bold mt-1">Scan</span>
+</div>
+<a class="flex flex-col items-center gap-1 group" href="#">
+<span class="material-symbols-outlined text-white/40 group-hover:text-primary transition-colors">redeem</span>
+<span class="text-[10px] text-white/40 font-medium group-hover:text-primary">Rewards</span>
+</a>
+<a class="flex flex-col items-center gap-1 group" href="#">
+<span class="material-symbols-outlined text-white/40 group-hover:text-primary transition-colors">person</span>
+<span class="text-[10px] text-white/40 font-medium group-hover:text-primary">Profile</span>
+</a>
+</nav>
+<div class="absolute bottom-2 left-1/2 -translate-x-1/2 w-32 h-1.5 bg-white/20 rounded-full"></div>
+</div>
+<div class="absolute inset-0 pointer-events-none z-10">
+<div class="absolute top-1/4 left-1/4 w-px h-px bg-scanning shadow-[0_0_10px_2px_#00ff41] opacity-40"></div>
+<div class="absolute bottom-1/3 right-1/4 w-px h-px bg-scanning shadow-[0_0_10px_2px_#00ff41] opacity-20"></div>
+</div>
+</div>
+<div class="fixed inset-0 -z-10 bg-background-light dark:bg-background-dark hidden md:flex items-center justify-center">
+<div class="w-[800px] h-[800px] bg-primary/5 rounded-full blur-[120px] absolute -top-40 -left-40"></div>
+<div class="w-[600px] h-[600px] bg-primary/5 rounded-full blur-[100px] absolute -bottom-20 -right-20"></div>
+</div>
+
+</body></html>

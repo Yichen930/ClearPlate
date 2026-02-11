@@ -1,0 +1,1199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ClearPlate</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<style>
+.material-icons,
+.material-icons-round {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+    font-feature-settings: 'liga';
+}
+</style>
+<script id="tailwind-config">
+tailwind.config = {
+    darkMode: "class",
+    theme: {
+        extend: {
+            colors: {
+                "primary": "#4CAF50",
+                "background-light": "#f6f7f6",
+                "background-dark": "#151d15",
+                "scanning": "#00ff41",
+                "neutral-green": "#4a5d4b",
+            },
+            fontFamily: {
+                "display": ["Epilogue", "sans-serif"],
+            },
+            borderRadius: {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+            },
+        },
+    },
+}
+</script>
+<style>
+body {
+    font-family: 'Epilogue', sans-serif;
+    -webkit-tap-highlight-color: transparent;
+    min-height: max(884px, 100dvh);
+}
+.material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+.font-variation-fill {
+    font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 48;
+}
+.ios-blur {
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}
+.scanning-gradient {
+    background: linear-gradient(180deg, rgba(0, 255, 65, 0) 0%, rgba(0, 255, 65, 0.2) 50%, rgba(0, 255, 65, 0) 100%);
+}
+.glass-panel {
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.scan-line {
+    box-shadow: 0 0 15px 2px rgba(0, 255, 65, 0.5);
+}
+.nav-glass {
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+.ios-shadow {
+    box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+}
+.progress-ring-circle {
+    transition: stroke-dashoffset 0.35s;
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+}
+.ios-switch {
+    position: relative;
+    display: inline-block;
+    width: 51px;
+    height: 31px;
+}
+.ios-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #e2e8f0;
+    transition: .4s;
+    border-radius: 34px;
+}
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 27px;
+    width: 27px;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+input:checked + .slider {
+    background-color: #4CAF50;
+}
+input:checked + .slider:before {
+    transform: translateX(20px);
+}
+.hide-scrollbar::-webkit-scrollbar,
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+.hide-scrollbar,
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.page {
+    display: none;
+}
+.page.active {
+    display: block;
+}
+.slide-left {
+    animation: slideLeft 0.3s ease-in-out;
+}
+@keyframes slideLeft {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+.slide-up {
+    animation: slideUp 0.3s ease-out;
+}
+@keyframes slideUp {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+</style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen font-display">
+
+<!-- Home Dashboard -->
+<div id="home" class="page active">
+    <div class="h-12 w-full"></div>
+    <main class="max-w-md mx-auto px-5 pb-32">
+        <header class="flex justify-between items-center py-4">
+            <div class="flex items-center gap-2">
+                <div class="bg-primary p-1.5 rounded-lg">
+                    <span class="material-icons-round text-white text-xl">eco</span>
+                </div>
+                <h1 class="text-xl font-bold tracking-tight text-slate-800 dark:text-white">ClearPlate</h1>
+            </div>
+            <div class="flex gap-3">
+                <button class="w-10 h-10 rounded-full bg-white dark:bg-slate-800 shadow-sm flex items-center justify-center border border-primary/10">
+                    <span class="material-icons-round text-slate-600 dark:text-slate-300">notifications_none</span>
+                </button>
+                <div class="w-10 h-10 rounded-full bg-primary/20 overflow-hidden border-2 border-primary">
+                    <img alt="Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAz3c_EknA6iXi6hyiliLzpAMrny_JAwanbc1EUXZ4Tbd__mnk11TNnGrd7B_I220KsGcQ8whmgd0V9CFk-YXklH9kNGRgYAYAJ-_jo-0A2vUdSeT9LFUAYmkq4JAxPJ4kiW7TsmlvymK8Sxao4aNA8NLtyakmIMXgdEX6o8IrJGUXRWkJ1io2iLhKkW6OdqRwT7HLpy3fnPDCYxrFIl0L4PEcbqXhlIcPgxT1MkCSvRlrT6FoiFj73QBlAwICWiOFbDxN-ScEaOlyW"/>
+                </div>
+            </div>
+        </header>
+        
+        <section class="mt-4 mb-6">
+            <p class="text-slate-500 dark:text-slate-400 text-sm">Welcome back, Sophie</p>
+            <h2 class="text-2xl font-bold">Eat Green Today 🌿</h2>
+        </section>
+
+        <section class="relative">
+            <div class="flex items-center justify-between mb-3">
+                <h3 class="font-bold text-lg">AI Recommendation</h3>
+                <span class="text-xs font-semibold px-2 py-1 bg-primary/10 text-primary rounded-full uppercase tracking-wider">Live Logic</span>
+            </div>
+            <div class="bg-white dark:bg-slate-900 rounded-xl shadow-xl shadow-primary/5 overflow-hidden border border-primary/20 ring-1 ring-primary/5">
+                <div class="relative h-48 w-full">
+                    <img class="w-full h-full object-cover" alt="Delicious plate of Hainanese Chicken Rice" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsBlmMni92siZ8ccVAUCIcNnk1tHu5fODd_31BADgtYE3FWlir9v7noQR_gIrbzig0UT7GFj8H62e8g3vVsqxw5sH4ViEP-c5GMrKEZ4q83nw1mjeyzchez0Mu_LP8_1WcC5Vajg7sXSHOekgruh8WWwImB2YVkp0DTTiZ4XjXOgYSuwy-WPS7Ne6wIELseQ9EbXZPd2vyjPQskG0BRWDFTzJD9rm3mYELQgTwOJzDv_LJaBIo-ynaH5Dd14vtjDbcsshFWfhEPgC2"/>
+                    <div class="absolute top-3 left-3 flex gap-2">
+                        <span class="bg-primary text-white text-[10px] font-bold px-2 py-1 rounded-full uppercase flex items-center gap-1">
+                            <span class="material-icons-round text-xs">trending_down</span> Low Waste
+                        </span>
+                        <span class="bg-white/90 dark:bg-slate-800/90 text-slate-800 dark:text-white text-[10px] font-bold px-2 py-1 rounded-full uppercase flex items-center gap-1">
+                            <span class="material-icons-round text-xs text-primary">verified</span> 92% Confidence
+                        </span>
+                    </div>
+                </div>
+                <div class="p-5">
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <h4 class="text-xl font-bold">Chicken Rice</h4>
+                            <p class="text-slate-500 text-sm flex items-center gap-1">
+                                <span class="material-icons-round text-sm">location_on</span> Koufu @ North Spine
+                            </p>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-primary font-bold text-lg">$4.50</p>
+                            <p class="text-[10px] text-slate-400 uppercase font-medium">Standard Price</p>
+                        </div>
+                    </div>
+                    <button onclick="showPage('portion-selection')" class="w-full bg-primary hover:bg-primary/90 text-white font-bold py-3.5 rounded-lg transition-all flex items-center justify-center gap-2 mb-3 shadow-lg shadow-primary/20">
+                        <span class="material-icons-round">shopping_cart</span>
+                        Order Now
+                    </button>
+                    <div class="text-center">
+                        <a class="text-xs font-medium text-slate-400 hover:text-primary flex items-center justify-center gap-1 transition-colors" href="#">
+                            Why this recommendation? <span class="material-icons-round text-xs">info</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mt-8">
+            <div class="flex items-center justify-between mb-4">
+                <h3 class="font-bold text-lg">Other Stalls</h3>
+                <button class="text-primary text-sm font-semibold">See All</button>
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+                <div onclick="showPage('portion-selection')" class="bg-white dark:bg-slate-900 p-3 rounded-xl border border-slate-100 dark:border-slate-800 shadow-sm cursor-pointer hover:shadow-md transition-shadow">
+                    <div class="relative rounded-lg overflow-hidden h-28 mb-3">
+                        <img class="w-full h-full object-cover" alt="Western food" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDeD6TeI-vpy8vkoE1fyUkLqj524eglqX7Jbgv9W-iMnFskk8ob8nM1S7rFT6eOJur8zzfL810VdZ9HroApiGMxpvSJLbTnFq2qToNnVcLTOaOV9ADc0Zu0MRXostkp6bNZksYa6ca5Lea-SbXLvrJaZ6IvdMty-YtFhOJCLHIhS-KN73NWPPWU12Ew5slV5_ksHe9Rga5JAAjYy04CjAI0M6RzCXi0HeBreti2VE0abFvTcK19UbMfJXMHm97kjw08GyS6dIRo_CxA"/>
+                        <div class="absolute bottom-2 left-2 bg-yellow-500 text-white text-[9px] font-bold px-2 py-0.5 rounded-full">MED WASTE</div>
+                    </div>
+                    <h5 class="font-bold text-sm">Western Food</h5>
+                    <p class="text-slate-400 text-[10px] mb-2">12 mins wait</p>
+                    <div class="flex items-center gap-1 text-xs font-medium text-primary">
+                        <span class="material-icons-round text-sm">star</span> 4.8
+                    </div>
+                </div>
+                <div onclick="showPage('portion-selection')" class="bg-white dark:bg-slate-900 p-3 rounded-xl border border-slate-100 dark:border-slate-800 shadow-sm cursor-pointer hover:shadow-md transition-shadow">
+                    <div class="relative rounded-lg overflow-hidden h-28 mb-3">
+                        <img class="w-full h-full object-cover" alt="Mala Xiang Guo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDQxQTj100YlFtzdPzH6hy3or_ybB_tqrfgJXeqwHsbg9uz7Yp4dqSAeNlSuHqzQ7RajgKPCfhseTjOGy2ZMnMBs9uiU8GxTvbJDVQWFEnPiqPazZdt0bueJoMW5ezM5ymh3TTpAACwZMzz8Yftum1eVOgxjpRsQhkRUbjhEt79QBqWIUbRWv1LxFd0zeKBHlyxqRJQ1fMR--K4sfX9Nw4LVB5jwFwbBDkntUgJesvDegeLvlKYkJxHbjjTk25HUXGgujnlrzCtYpu"/>
+                        <div class="absolute bottom-2 left-2 bg-red-500 text-white text-[9px] font-bold px-2 py-0.5 rounded-full">HIGH WASTE</div>
+                    </div>
+                    <h5 class="font-bold text-sm">Mala Xiang Guo</h5>
+                    <p class="text-slate-400 text-[10px] mb-2">20 mins wait</p>
+                    <div class="flex items-center gap-1 text-xs font-medium text-primary">
+                        <span class="material-icons-round text-sm">star</span> 4.9
+                    </div>
+                </div>
+                <div onclick="showPage('portion-selection')" class="bg-white dark:bg-slate-900 p-3 rounded-xl border border-slate-100 dark:border-slate-800 shadow-sm cursor-pointer hover:shadow-md transition-shadow">
+                    <div class="relative rounded-lg overflow-hidden h-28 mb-3">
+                        <img class="w-full h-full object-cover" alt="Korean Fusion" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgFAiA_dcO4eg0rBswoHLA0V9hUTZv8uVtNVyCEywKAAArytUbxo2Ee1aRh4kBen4dxtJWHDYlLpqL0I1Ij7PL6FqU_9jBARVKCWkXRjRcA0X_dhRTwQDdy9XSe-gg9uUSnYfYwBjce0MZ2vfQ2p1oH-5MHnuYJ9f3UspixJDFoQUA1VnlYzX2eMkBNmg50ErW4NahwqqlahRThJVJVHrwjTmfgT2-Wtr_vVHjTh3PaheJ1fnXwqRVvMYjlWFaGe4dGBxyqWYx6maD"/>
+                        <div class="absolute bottom-2 left-2 bg-primary text-white text-[9px] font-bold px-2 py-0.5 rounded-full">LOW WASTE</div>
+                    </div>
+                    <h5 class="font-bold text-sm">Korean Fusion</h5>
+                    <p class="text-slate-400 text-[10px] mb-2">8 mins wait</p>
+                    <div class="flex items-center gap-1 text-xs font-medium text-primary">
+                        <span class="material-icons-round text-sm">star</span> 4.6
+                    </div>
+                </div>
+                <div onclick="showPage('portion-selection')" class="bg-white dark:bg-slate-900 p-3 rounded-xl border border-slate-100 dark:border-slate-800 shadow-sm cursor-pointer hover:shadow-md transition-shadow">
+                    <div class="relative rounded-lg overflow-hidden h-28 mb-3">
+                        <img class="w-full h-full object-cover" alt="Nippon Bites" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0vNnSL0JNSlgme8lKxoaLHnURHpYQn0brGyWVsNLSb_jDXHBfTEz8_GBppsKT6b4whbN01phRM5ad0I41teeA5CD1DZ_O-xVei4VmfJIo2hjMGPs03Bs4shqID_wqtyv8RNqF_BUokeuIgbE0bJ-hBDPXK-1OeqirY4l6Ssj6PYrvnrcKis8eCM0OyqpngBgB5ivEIxlcmR_H47Y--PbW6h1SPumirirLSV1z0kmJ1_oM9joEMmzrhamJk5oGdbgzLqYditdc4Psm"/>
+                        <div class="absolute bottom-2 left-2 bg-primary text-white text-[9px] font-bold px-2 py-0.5 rounded-full">LOW WASTE</div>
+                    </div>
+                    <h5 class="font-bold text-sm">Nippon Bites</h5>
+                    <p class="text-slate-400 text-[10px] mb-2">15 mins wait</p>
+                    <div class="flex items-center gap-1 text-xs font-medium text-primary">
+                        <span class="material-icons-round text-sm">star</span> 4.7
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</div>
+
+<!-- Portion Selection -->
+<div id="portion-selection" class="page">
+    <main class="w-full max-w-md mx-auto bg-white dark:bg-slate-900 min-h-screen flex flex-col relative overflow-hidden shadow-2xl">
+        <header class="sticky top-0 z-20 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md px-6 py-4 flex items-center justify-between border-b border-primary/10">
+            <button onclick="showPage('home')" class="p-2 -ml-2 rounded-full hover:bg-primary/10 transition-colors">
+                <span class="material-icons text-primary">arrow_back_ios_new</span>
+            </button>
+            <div class="text-center">
+                <h1 class="text-lg font-bold">Chicken Rice</h1>
+                <p class="text-xs text-slate-500 dark:text-slate-400">Fine Food Canteen (NTU)</p>
+            </div>
+            <div class="w-10"></div>
+        </header>
+        <div class="flex-1 overflow-y-auto pb-44">
+            <section class="py-10 px-6 flex flex-col items-center justify-center space-y-6">
+                <div class="relative">
+                    <div class="absolute inset-0 bg-primary/20 blur-3xl rounded-full scale-75"></div>
+                    <div id="plate-container" class="relative transform transition-transform duration-300 scale-100 flex items-center justify-center">
+                        <div class="w-56 h-56 bg-white dark:bg-slate-800 rounded-full shadow-xl border-8 border-slate-50 dark:border-slate-700 overflow-hidden">
+                            <img alt="Top down view of a plate of hainanese chicken rice" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDTiMWBhmqu_u3ZT0v0l70oHipjj-JrgQ7D89-s-hFCJTvM8TVN8J1Rog0yOouEnLH2IarVeoEy7eG92DjCW-Ov45q1XrjqX0qNlhhdevoSMvE9hMiNmvfKIi3P5jctTRsnPwI0NFi_4ekj8gy7E1sZmQa3IB2bSdTHocBaRHf9XnYGltVaEeZtMHH1U6fSC-YAMJm-YPgq7ynDhLQn9qXyALWbjoQSyetwMX1ZiC0RCHUljhid_30V3-77xMZvgb-Y50sDha6HrHEz"/>
+                        </div>
+                        <div class="absolute -top-1 -right-1 bg-primary text-white p-2 rounded-full shadow-lg">
+                            <span class="material-icons text-sm">eco</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center space-y-1">
+                    <p class="text-sm font-semibold text-primary">Visualizing your portion...</p>
+                    <p class="text-xs text-slate-400">Choosing what you can finish reduces campus waste</p>
+                </div>
+            </section>
+            <section class="px-6 space-y-3">
+                <div class="grid grid-cols-1 gap-3">
+                    <button onclick="selectPortion('small')" class="flex items-center justify-between p-4 rounded-xl border-2 border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-800 hover:border-primary/50 transition-all">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+                                <span class="material-icons text-primary text-lg">restaurant</span>
+                            </div>
+                            <div class="text-left">
+                                <span class="block font-bold">Small (~70%)</span>
+                                <span class="block text-xs text-slate-500">Perfect for light eaters</span>
+                            </div>
+                        </div>
+                        <span class="material-icons text-slate-300">radio_button_unchecked</span>
+                    </button>
+                    <button onclick="selectPortion('regular')" class="flex items-center justify-between p-4 rounded-xl border-2 border-primary bg-primary/5 dark:bg-primary/10 transition-all">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center">
+                                <span class="material-icons text-white text-lg">restaurant</span>
+                            </div>
+                            <div class="text-left">
+                                <span class="block font-bold text-primary">Regular (~100%)</span>
+                                <span class="block text-xs text-primary/70">Standard stall size</span>
+                            </div>
+                        </div>
+                        <span class="material-icons text-primary" style="font-size: 24px;">check_circle</span>
+                    </button>
+                    <button onclick="selectPortion('large')" class="flex items-center justify-between p-4 rounded-xl border-2 border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-800 hover:border-primary/50 transition-all">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+                                <span class="material-icons text-primary text-xl">restaurant</span>
+                            </div>
+                            <div class="text-left">
+                                <span class="block font-bold">Large (~130%)</span>
+                                <span class="block text-xs text-slate-500">For a big appetite</span>
+                            </div>
+                        </div>
+                        <span class="material-icons text-slate-300">radio_button_unchecked</span>
+                    </button>
+                </div>
+            </section>
+            <section class="mt-8">
+                <div class="px-6 mb-3 flex items-center justify-between">
+                    <h2 class="font-bold text-slate-800 dark:text-slate-100">Student Insights</h2>
+                    <span class="text-xs font-semibold text-primary uppercase tracking-wider">4.8 ★</span>
+                </div>
+                <div class="flex overflow-x-auto pb-4 px-6 space-x-4 no-scrollbar">
+                    <div class="flex-shrink-0 w-64 p-4 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-100 dark:border-slate-800">
+                        <div class="flex items-center space-x-2 mb-2">
+                            <div class="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center text-[10px] font-bold text-primary">JD</div>
+                            <span class="text-[10px] font-semibold text-slate-500 uppercase">Jamie D.</span>
+                        </div>
+                        <p class="text-xs italic text-slate-600 dark:text-slate-300 leading-relaxed">"Small is actually enough for light eaters. I usually can't finish the regular!"</p>
+                    </div>
+                    <div class="flex-shrink-0 w-64 p-4 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-100 dark:border-slate-800">
+                        <div class="flex items-center space-x-2 mb-2">
+                            <div class="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center text-[10px] font-bold text-primary">AL</div>
+                            <span class="text-[10px] font-semibold text-slate-500 uppercase">Alex L.</span>
+                        </div>
+                        <p class="text-xs italic text-slate-600 dark:text-slate-300 leading-relaxed">"Regular is quite filling. The chicken portions here are generous."</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <footer class="absolute bottom-0 left-0 right-0 z-30">
+            <div class="px-6 pb-4 bg-gradient-to-t from-white via-white/95 to-transparent dark:from-slate-900 dark:via-slate-900/95">
+                <button onclick="confirmOrder()" class="w-full bg-primary hover:bg-primary/90 text-white font-bold py-4 rounded-xl shadow-lg shadow-primary/20 flex items-center justify-center space-x-2 transition-transform active:scale-[0.98]">
+                    <span>Confirm Order</span>
+                    <span class="material-icons">arrow_forward</span>
+                </button>
+            </div>
+        </footer>
+    </main>
+</div>
+
+<!-- Analytics Hub -->
+<div id="analytics" class="page">
+    <div class="h-12 w-full flex items-center justify-between px-8 pt-4 sticky top-0 bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-md z-50">
+        <span class="text-sm font-semibold">9:41</span>
+        <div class="flex items-center gap-1.5">
+            <span class="material-icons text-xs" style="font-size: 14px;">signal_cellular_alt</span>
+            <span class="material-icons text-xs" style="font-size: 14px;">wifi</span>
+            <span class="material-icons text-xs" style="font-size: 14px;">battery_full</span>
+        </div>
+    </div>
+    <header class="px-6 pt-4 pb-2">
+        <h1 class="text-2xl font-bold tracking-tight">Analytics</h1>
+        <p class="text-slate-500 dark:text-slate-400 text-sm">Monitor your sustainability impact.</p>
+    </header>
+    <div class="px-6 py-4 sticky top-12 bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-md z-40">
+        <div class="bg-slate-200/50 dark:bg-slate-800/50 p-1 rounded-xl flex items-center w-full">
+            <button id="personal-btn" onclick="switchView('personal')" class="flex-1 py-2 text-sm font-bold bg-white dark:bg-slate-700 rounded-lg shadow-sm text-slate-900 dark:text-white">
+                Personal
+            </button>
+            <button id="community-btn" onclick="switchView('community')" class="flex-1 py-2 text-sm font-medium text-slate-500 dark:text-slate-400">
+                Community
+            </button>
+        </div>
+    </div>
+    <main id="analytics-content" class="px-6 pb-32 space-y-6">
+        <!-- Personal View -->
+        <div id="personal-view">
+            <div class="bg-white dark:bg-slate-900 rounded-xl p-6 ios-shadow border border-primary/10">
+                <div class="flex justify-between items-start">
+                    <div>
+                        <p class="text-slate-500 dark:text-slate-400 text-xs font-medium uppercase tracking-wider">Weekly Waste</p>
+                        <h2 class="text-4xl font-bold text-slate-900 dark:text-white mt-1">120<span class="text-xl font-normal text-slate-400">g</span></h2>
+                    </div>
+                    <div class="bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-semibold flex items-center gap-1">
+                        <span class="material-icons text-sm">trending_down</span>
+                        15%
+                    </div>
+                </div>
+                <p class="text-slate-400 dark:text-slate-500 text-xs mt-4 italic">Better than 82% of students in Hall 4</p>
+            </div>
+            <div class="bg-white dark:bg-slate-900 rounded-xl p-6 ios-shadow border border-primary/5">
+                <h3 class="text-sm font-semibold mb-6 flex justify-between items-center">
+                    Daily Breakdown
+                    <span class="text-xs font-normal text-slate-400">Grams (g)</span>
+                </h3>
+                <div class="flex items-end justify-between h-40 gap-2 px-1">
+                    <div class="flex-1 flex flex-col items-center gap-2">
+                        <div class="w-full bg-primary/20 rounded-t-lg relative" style="height: 45%;">
+                            <div class="absolute inset-0 bg-primary opacity-30 rounded-t-lg"></div>
+                        </div>
+                        <span class="text-[10px] text-slate-400 font-medium">M</span>
+                    </div>
+                    <div class="flex-1 flex flex-col items-center gap-2">
+                        <div class="w-full bg-primary/20 rounded-t-lg relative" style="height: 60%;">
+                            <div class="absolute inset-0 bg-primary opacity-40 rounded-t-lg"></div>
+                        </div>
+                        <span class="text-[10px] text-slate-400 font-medium">T</span>
+                    </div>
+                    <div class="flex-1 flex flex-col items-center gap-2">
+                        <div class="w-full bg-primary/20 rounded-t-lg relative" style="height: 30%;">
+                            <div class="absolute inset-0 bg-primary opacity-20 rounded-t-lg"></div>
+                        </div>
+                        <span class="text-[10px] text-slate-400 font-medium">W</span>
+                    </div>
+                    <div class="flex-1 flex flex-col items-center gap-2">
+                        <div class="w-full bg-primary rounded-t-lg relative" style="height: 85%;"></div>
+                        <span class="text-[10px] text-slate-600 dark:text-slate-300 font-bold">T</span>
+                    </div>
+                    <div class="flex-1 flex flex-col items-center gap-2">
+                        <div class="w-full bg-primary/20 rounded-t-lg relative" style="height: 50%;">
+                            <div class="absolute inset-0 bg-primary opacity-30 rounded-t-lg"></div>
+                        </div>
+                        <span class="text-[10px] text-slate-400 font-medium">F</span>
+                    </div>
+                    <div class="flex-1 flex flex-col items-center gap-2">
+                        <div class="w-full bg-primary/20 rounded-t-lg relative" style="height: 20%;">
+                            <div class="absolute inset-0 bg-primary opacity-10 rounded-t-lg"></div>
+                        </div>
+                        <span class="text-[10px] text-slate-400 font-medium">S</span>
+                    </div>
+                    <div class="flex-1 flex flex-col items-center gap-2">
+                        <div class="w-full bg-primary/20 rounded-t-lg relative" style="height: 15%;">
+                            <div class="absolute inset-0 bg-primary opacity-10 rounded-t-lg"></div>
+                        </div>
+                        <span class="text-[10px] text-slate-400 font-medium">S</span>
+                    </div>
+                </div>
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+                <div class="bg-white dark:bg-slate-900 rounded-xl p-5 ios-shadow border border-primary/5 flex flex-col items-center justify-center text-center">
+                    <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-3">Eco Score</p>
+                    <div class="relative w-24 h-24 flex items-center justify-center">
+                        <svg class="w-full h-full" viewBox="0 0 100 100">
+                            <circle class="text-slate-100 dark:text-slate-800" cx="50" cy="50" fill="transparent" r="45" stroke="currentColor" stroke-width="8"></circle>
+                            <circle class="progress-ring-circle rounded-full" cx="50" cy="50" fill="transparent" r="45" stroke="#4CAF50" stroke-dasharray="282.7" stroke-dashoffset="42.4" stroke-width="8"></circle>
+                        </svg>
+                        <div class="absolute inset-0 flex flex-col items-center justify-center">
+                            <span class="text-2xl font-bold">85</span>
+                        </div>
+                    </div>
+                    <span class="mt-3 text-[10px] text-primary font-semibold py-1 px-2 bg-primary/10 rounded-full">Pro Cleaner</span>
+                </div>
+                <div class="bg-white dark:bg-slate-900 rounded-xl p-5 ios-shadow border border-primary/5 flex flex-col">
+                    <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">CO2 Saved</p>
+                    <div class="flex items-center gap-2">
+                        <span class="material-icons text-primary text-xl">cloud_done</span>
+                        <span class="text-2xl font-bold">2.4<span class="text-sm font-normal text-slate-400 ml-0.5">kg</span></span>
+                    </div>
+                    <p class="text-xs text-slate-500 mt-2">Total Impact</p>
+                    <div class="mt-4 pt-4 border-t border-slate-50 dark:border-slate-800">
+                        <div class="flex items-center justify-between">
+                            <div class="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
+                                <span class="material-icons text-primary text-sm">forest</span>
+                            </div>
+                            <div class="flex-1 ml-2">
+                                <p class="text-[10px] font-semibold leading-tight">Planet Hero</p>
+                                <p class="text-[9px] text-slate-400">Equivalent to 1 tree</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="space-y-3">
+                <h3 class="text-sm font-semibold px-1">Recent Activity</h3>
+                <div class="bg-white dark:bg-slate-900 rounded-lg p-4 flex items-center gap-4 ios-shadow">
+                    <div class="w-10 h-10 rounded-full bg-green-500/10 flex items-center justify-center">
+                        <span class="material-icons text-green-600" style="font-size: 24px;">check_circle</span>
+                    </div>
+                    <div class="flex-1">
+                        <h4 class="text-sm font-medium">Low Waste Maintenance</h4>
+                        <p class="text-xs text-slate-400">Awarded for consistent 0g waste</p>
+                    </div>
+                    <div class="text-right">
+                        <span class="text-primary font-bold text-sm">+50 pts</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Community View -->
+        <div id="community-view" style="display: none;">
+            <div class="flex items-center justify-between">
+                <h2 class="text-lg font-bold text-slate-800 dark:text-white">Community Impact Insights</h2>
+            </div>
+            <div class="bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-primary/5 p-6">
+                <div class="flex items-start justify-between">
+                    <div>
+                        <p class="text-sm font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider">Total Weekly Waste Saved</p>
+                        <h2 class="text-4xl font-bold mt-1 text-primary">450kg</h2>
+                    </div>
+                    <div class="bg-primary/10 p-3 rounded-full">
+                        <span class="material-icons-round text-primary">eco</span>
+                    </div>
+                </div>
+                <div class="mt-4 flex items-center gap-2">
+                    <span class="text-sm font-semibold text-primary bg-primary/10 px-2 py-0.5 rounded-full">+12% from last week</span>
+                </div>
+            </div>
+            <div class="bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-primary/5 p-6">
+                <p class="text-sm font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-4">Top Performer</p>
+                <div class="flex items-center gap-4">
+                    <div class="relative w-16 h-16 rounded-lg overflow-hidden shrink-0">
+                        <img alt="Mala Cuisine Stall" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9zgWWNdE7Xu1rQemM4lkqxun9WC5H8-9dSu707zXT7djbCvLVNhUbobFidAf4CRzQ2xVjYf9BawK_3w-pkT1VX5B2Q2g1fw5UWoP27O1bluUrj7yK639p-e2IIxRFnojQYCaRnS65xe2vqyFnGrJ2ZuUxBeeYC3-3hpuD9zcOuNDj-sJwPkoQbaqEYqYAQHRqM71flEh7Q8CEQSTiJ4Ik-A6sNM7fdEt0UQPKbnb63qdfiLA-lNORzLdHQIP96fKYrPj89q4uVYto"/>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-lg font-bold text-slate-800 dark:text-white leading-tight">Mala Cuisine</h3>
+                        <p class="text-sm text-slate-500 dark:text-slate-400">North Hill Canteen</p>
+                    </div>
+                    <div class="text-right">
+                        <span class="text-primary font-bold block text-lg">98%</span>
+                        <span class="text-[10px] text-slate-400 uppercase">Efficiency</span>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-primary/5 p-6">
+                <h3 class="text-base font-bold mb-6 flex items-center gap-2">
+                    <span class="material-icons-round text-primary text-xl">bar_chart</span>
+                    Waste per Portion Size (Avg)
+                </h3>
+                <div class="flex items-end justify-between h-40 gap-4 mb-2">
+                    <div class="flex flex-col items-center flex-1">
+                        <div class="w-full bg-primary/20 rounded-t-lg relative h-[30%]">
+                            <span class="absolute -top-6 left-1/2 -translate-x-1/2 text-xs font-bold text-primary">15g</span>
+                        </div>
+                        <p class="text-[10px] font-bold mt-2 text-slate-500 dark:text-slate-400 uppercase">Small</p>
+                    </div>
+                    <div class="flex flex-col items-center flex-1">
+                        <div class="w-full bg-primary/50 rounded-t-lg relative h-[60%]">
+                            <span class="absolute -top-6 left-1/2 -translate-x-1/2 text-xs font-bold text-primary">42g</span>
+                        </div>
+                        <p class="text-[10px] font-bold mt-2 text-slate-500 dark:text-slate-400 uppercase">Regular</p>
+                    </div>
+                    <div class="flex flex-col items-center flex-1">
+                        <div class="w-full bg-primary rounded-t-lg relative h-[90%]">
+                            <span class="absolute -top-6 left-1/2 -translate-x-1/2 text-xs font-bold text-primary">85g</span>
+                        </div>
+                        <p class="text-[10px] font-bold mt-2 text-slate-500 dark:text-slate-400 uppercase">Large</p>
+                    </div>
+                </div>
+                <p class="text-[11px] text-slate-400 mt-4 leading-relaxed italic">
+                    * Based on average post-meal weighing data across all NTU halls.
+                </p>
+            </div>
+        </div>
+    </main>
+</div>
+
+<!-- Rewards Marketplace -->
+<div id="rewards" class="page">
+    <div class="max-w-[430px] mx-auto min-h-screen bg-background-light dark:bg-background-dark relative flex flex-col pb-24">
+        <div class="h-12 flex items-center justify-between px-8 pt-4">
+            <span class="text-sm font-semibold">9:41</span>
+            <div class="flex gap-1.5 items-center">
+                <span class="material-icons text-base" style="font-size: 16px;">signal_cellular_alt</span>
+                <span class="material-icons text-base" style="font-size: 16px;">wifi</span>
+                <span class="material-icons text-base" style="font-size: 16px;">battery_full</span>
+            </div>
+        </div>
+        <header class="px-6 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold tracking-tight">Your Rewards</h1>
+            <div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary">
+                <img class="w-full h-full object-cover" alt="User profile avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAz3c_EknA6iXi6hyiliLzpAMrny_JAwanbc1EUXZ4Tbd__mnk11TNnGrd7B_I220KsGcQ8whmgd0V9CFk-YXklH9kNGRgYAYAJ-_jo-0A2vUdSeT9LFUAYmkq4JAxPJ4kiW7TsmlvymK8Sxao4aNA8NLtyakmIMXgdEX6o8IrJGUXRWkJ1io2iLhKkW6OdqRwT7HLpy3fnPDCYxrFIl0L4PEcbqXhlIcPgxT1MkCSvRlrT6FoiFj73QBlAwICWiOFbDxN-ScEaOlyW"/>
+            </div>
+        </header>
+        <div class="px-6 py-2">
+            <div class="bg-primary/10 dark:bg-primary/20 rounded-xl p-6 border border-primary/20 relative overflow-hidden">
+                <div class="absolute -right-4 -top-4 w-24 h-24 bg-primary/10 rounded-full blur-2xl"></div>
+                <p class="text-sm font-medium text-neutral-green dark:text-primary/80 uppercase tracking-wider">Current Balance</p>
+                <div class="flex items-center gap-3 mt-1">
+                    <span id="credits-balance" class="text-4xl font-bold text-neutral-900 dark:text-white">450</span>
+                    <div class="flex flex-col">
+                        <span class="text-lg font-bold text-primary">Credits</span>
+                        <div class="flex items-center gap-1">
+                            <span class="material-icons text-xs text-primary">eco</span>
+                            <span class="text-[10px] text-neutral-green dark:text-primary/60 font-medium">Sustainability Hero</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-4 flex items-center justify-between bg-white/50 dark:bg-black/20 p-3 rounded-lg backdrop-blur-sm">
+                    <p class="text-xs font-medium text-neutral-700 dark:text-neutral-300">Keep clearing your plate to earn more!</p>
+                    <span class="material-icons text-primary text-sm">trending_up</span>
+                </div>
+            </div>
+        </div>
+        <div class="px-6 py-6 flex gap-3 overflow-x-auto hide-scrollbar">
+            <button class="px-5 py-2 rounded-full bg-primary text-white text-sm font-semibold whitespace-nowrap">All Items</button>
+            <button class="px-5 py-2 rounded-full bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-sm font-medium whitespace-nowrap">Vouchers</button>
+            <button class="px-5 py-2 rounded-full bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-sm font-medium whitespace-nowrap">Merchandise</button>
+            <button class="px-5 py-2 rounded-full bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-sm font-medium whitespace-nowrap">Eco-Gear</button>
+        </div>
+        <main class="px-6 space-y-6 flex-1">
+            <div class="bg-white dark:bg-neutral-900 rounded-xl overflow-hidden shadow-sm border border-neutral-100 dark:border-neutral-800 flex flex-col">
+                <div class="relative h-40">
+                    <img class="w-full h-full object-cover" alt="Healthy salad bowl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDASSYdVt6O8IV8hK96TiKamd6u3YmJpQ_eQX1hdZkS2AVrGsaOQSQVoExWyt2Qy-qpYF641qxm38R9Me8kM_UaytiaLAGQ3EcJVP5priXfChA9yVFb8EUfRklm8kzgEUGthc6eHuYAFhtdx7bIP45Dd5kaOAo3NcWpaPXVK78ZmlxE_8_hHa4FV_asFyj9Lppu2E0jMQ3BsUWTBq1GPdXh9gXJ5Rc_ze9byuvrt3pamBBw_mJPQ6QbPRNf1VLuQvinavTfa1bAs_ib"/>
+                    <div class="absolute top-3 right-3 bg-white/90 dark:bg-black/80 backdrop-blur-md px-3 py-1 rounded-full flex items-center gap-1">
+                        <span class="material-icons text-primary text-sm">confirmation_number</span>
+                        <span class="text-xs font-bold">Food Voucher</span>
+                    </div>
+                </div>
+                <div class="p-4 flex flex-col gap-3">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h3 class="font-bold text-lg leading-tight">$1 Off Next Meal</h3>
+                            <p class="text-sm text-neutral-500 dark:text-neutral-400 mt-1">Valid at North Spine Plaza & Canteen 2</p>
+                        </div>
+                        <div class="flex flex-col items-end">
+                            <span class="text-primary font-bold">100</span>
+                            <span class="text-[10px] text-neutral-400 font-bold uppercase">Credits</span>
+                        </div>
+                    </div>
+                    <button onclick="redeemReward(100)" class="w-full py-3 bg-primary hover:bg-primary/90 text-white rounded-lg font-bold transition-all active:scale-[0.98]">Redeem Now</button>
+                </div>
+            </div>
+            <div class="bg-white dark:bg-neutral-900 rounded-xl overflow-hidden shadow-sm border border-neutral-100 dark:border-neutral-800 flex flex-col">
+                <div class="relative h-40">
+                    <img class="w-full h-full object-cover" alt="Coffee" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuwCMdqA2G7M90UlVaOzYdwlVWZauLcTK5uxhQaktw--FhFxk0ui_Zxu4UgcWOKOHBpDJyXWjDVSVmwK1B534ILJIrD33BX3i1bdtcb-D6bXkxowArFDJy6LiKbbzn94hBlmKeaN6UWyAPhJ9N7M44mhKwUizyeve_VOaSCJJroKtDSAoil8Bq6Sp1FgBMreXRyKkdHgv7_HltKISfvREcq8M7St08G9PT7Ba9RLb8aNEODoSwLszVGqZWWP7F8JszjGDH2dM1CQvC"/>
+                    <div class="absolute top-3 right-3 bg-white/90 dark:bg-black/80 backdrop-blur-md px-3 py-1 rounded-full flex items-center gap-1">
+                        <span class="material-icons text-primary text-sm">local_cafe</span>
+                        <span class="text-xs font-bold">Beverage</span>
+                    </div>
+                </div>
+                <div class="p-4 flex flex-col gap-3">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h3 class="font-bold text-lg leading-tight">Free Drink at Koufu</h3>
+                            <p class="text-sm text-neutral-500 dark:text-neutral-400 mt-1">Choice of Coffee, Tea or Milo</p>
+                        </div>
+                        <div class="flex flex-col items-end">
+                            <span class="text-primary font-bold">150</span>
+                            <span class="text-[10px] text-neutral-400 font-bold uppercase">Credits</span>
+                        </div>
+                    </div>
+                    <button onclick="redeemReward(150)" class="w-full py-3 bg-primary hover:bg-primary/90 text-white rounded-lg font-bold transition-all active:scale-[0.98]">Redeem Now</button>
+                </div>
+            </div>
+            <div class="bg-white dark:bg-neutral-900 rounded-xl overflow-hidden shadow-sm border border-neutral-100 dark:border-neutral-800 flex flex-col opacity-90">
+                <div class="relative h-40">
+                    <img class="w-full h-full object-cover grayscale-[20%]" alt="Cutlery set" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxXtxyfBaiMIyWxSOoEMsFoRsYdElEsZt8Rhl_Iq80Zss4TRkJtjHKevsC-1Cax9wi5C8-w7swfW_6ExY2KvnIYIbjkCst2c9sqtrRiMhp7lbufG7s9AjtSqgvbniGYfoTjqmHOQalfRPMTT9Yxv_DnhzzcBEFQErB5sTps_Etc00iQuNzJjDj8SMZTW6o8izNnY36w6_824HtJAKty_6wWpW8zPc2GKYTffeMydQ5er3zYwV9SIllSXBW5IiuUAgIJVCyLFAL3050"/>
+                    <div class="absolute top-3 right-3 bg-white/90 dark:bg-black/80 backdrop-blur-md px-3 py-1 rounded-full flex items-center gap-1">
+                        <span class="material-icons text-primary text-sm">shopping_bag</span>
+                        <span class="text-xs font-bold">Merchandise</span>
+                    </div>
+                    <div class="absolute inset-0 bg-black/5 flex items-center justify-center">
+                        <div class="bg-black/60 backdrop-blur-md rounded-full px-4 py-1 flex items-center gap-2">
+                            <span class="material-icons text-white text-xs">lock</span>
+                            <span class="text-white text-xs font-semibold">Almost there!</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-4 flex flex-col gap-3">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h3 class="font-bold text-lg leading-tight">Reusable Cutlery Set</h3>
+                            <p class="text-sm text-neutral-500 dark:text-neutral-400 mt-1">Limited Edition ClearPlate Bamboo Kit</p>
+                        </div>
+                        <div class="flex flex-col items-end">
+                            <span class="text-neutral-400 font-bold">500</span>
+                            <span class="text-[10px] text-neutral-400 font-bold uppercase">Credits</span>
+                        </div>
+                    </div>
+                    <div class="space-y-1.5">
+                        <div class="flex justify-between text-[10px] font-bold text-neutral-500 uppercase tracking-tighter">
+                            <span>Your Progress</span>
+                            <span id="progress-percent">90%</span>
+                        </div>
+                        <div class="w-full h-2 bg-neutral-100 dark:bg-neutral-800 rounded-full overflow-hidden">
+                            <div id="progress-bar" class="bg-primary h-full rounded-full shadow-[0_0_8px_rgba(19,231,26,0.5)]" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <button class="w-full py-3 bg-neutral-200 dark:bg-neutral-800 text-neutral-400 rounded-lg font-bold cursor-not-allowed">Insufficient Credits</button>
+                </div>
+            </div>
+            <div class="h-8"></div>
+        </main>
+    </div>
+</div>
+
+<!-- Scan Screen -->
+<div id="scan" class="page">
+    <div class="relative h-screen w-full max-w-md mx-auto bg-black overflow-hidden shadow-2xl flex flex-col">
+        <div class="absolute inset-0 z-0">
+            <img alt="A cafeteria tray on a conveyor belt" class="w-full h-full object-cover grayscale-[20%] contrast-125" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMHkf4IsaZmr3SzSiUe8AQxSLci-R3BCQPW4HTXD_RRXriAwjzUGZQy0ey7ekIOlZTG_XALfFHVUGDMEscpFRshm6wCO2F5aWIj_fvVuqeeN91lM3qAbKuOauT3cYOgrSAPkMtWA2IXw15bzouaxll3t_bFO9rCFMQ3iBTBygNjBEBuC332zEzekxI5KtInshRdoFuyG6Ybn2zjf4RwRdq41TdAqdsly9c-EXk1Of3NQNsJsK8EekGTg8WkWMyanBm1oOdctwgcjuJ"/>
+            <div class="absolute inset-x-0 top-1/3 bottom-1/3 scanning-gradient border-y border-scanning/30"></div>
+            <div class="absolute top-1/3 left-0 right-0 h-[2px] bg-scanning/50 scan-line"></div>
+        </div>
+        <div class="absolute top-0 left-0 right-0 z-40 p-6 pt-14 flex justify-between items-center bg-gradient-to-b from-black/80 to-transparent">
+            <div class="flex items-center gap-2">
+                <div class="w-2 h-2 rounded-full bg-scanning animate-pulse shadow-[0_0_8px_#00ff41]"></div>
+                <span class="text-white text-xs font-bold uppercase tracking-[0.2em]">System Active</span>
+            </div>
+            <button class="w-10 h-10 flex items-center justify-center glass-panel rounded-full text-white/80 hover:text-white transition-colors">
+                <span class="material-symbols-outlined text-[20px]">help_center</span>
+            </button>
+        </div>
+        <div class="relative flex-1 z-20 flex flex-col justify-center px-6 pointer-events-none mt-[-60px]">
+            <div class="relative w-full aspect-square border border-white/10 rounded-3xl mb-12">
+                <div class="absolute -top-1 -left-1 w-6 h-6 border-t-2 border-l-2 border-scanning"></div>
+                <div class="absolute -top-1 -right-1 w-6 h-6 border-t-2 border-r-2 border-scanning"></div>
+                <div class="absolute -bottom-1 -left-1 w-6 h-6 border-b-2 border-l-2 border-scanning"></div>
+                <div class="absolute -bottom-1 -right-1 w-6 h-6 border-b-2 border-r-2 border-scanning"></div>
+                <div class="absolute top-4 left-4 flex flex-col gap-2">
+                    <div class="glass-panel px-3 py-1.5 rounded-lg flex items-center gap-2">
+                        <span class="material-symbols-outlined text-scanning text-sm">scale</span>
+                        <span class="text-white text-[10px] font-bold uppercase">12g detected</span>
+                    </div>
+                </div>
+            </div>
+            <div class="absolute -bottom-24 left-0 right-0 space-y-3">
+                <div id="step1" class="glass-panel p-3 rounded-2xl border-l-4 border-l-white/20 flex items-center gap-4">
+                    <div class="w-6 h-6 flex items-center justify-center rounded-full bg-white/10 text-white/40 text-[10px] font-bold">1</div>
+                    <div class="flex-1">
+                        <p class="text-white/60 text-[11px] font-bold uppercase tracking-tight">Step 1: Automatic Scan</p>
+                        <p class="text-white/40 text-[10px]">Processing vision metrics...</p>
+                    </div>
+                    <span class="material-symbols-outlined text-white/20 text-sm">hourglass_empty</span>
+                </div>
+                <div id="step2" class="glass-panel p-3 rounded-2xl border-l-4 border-l-white/20 flex items-center gap-4">
+                    <div class="w-6 h-6 flex items-center justify-center rounded-full bg-white/10 text-white/40 text-[10px] font-bold">2</div>
+                    <div class="flex-1">
+                        <p class="text-white/60 text-[11px] font-bold uppercase tracking-tight">Step 2: Identifying User</p>
+                        <div class="flex items-center gap-1.5 mt-0.5">
+                            <span class="w-1 h-1 bg-white/40 rounded-full"></span>
+                            <p class="text-white/40 text-[10px]">Facial Recognition Active</p>
+                        </div>
+                    </div>
+                    <span class="material-symbols-outlined text-white/20 text-sm">face</span>
+                </div>
+            </div>
+        </div>
+        <div class="relative z-40 mt-auto">
+            <div class="flex flex-col items-center gap-2 mb-6 bg-gradient-to-t from-black/60 to-transparent pt-10">
+                <div class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-white/40 text-sm">bolt</span>
+                    <p class="text-white/60 text-[10px] font-medium uppercase tracking-[0.3em]">Instant Analysis &lt;3s</p>
+                </div>
+                <div class="h-0.5 w-16 bg-white/10 rounded-full relative overflow-hidden">
+                    <div class="absolute inset-y-0 left-0 w-2/3 bg-scanning shadow-[0_0_5px_#00ff41]"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Profile Screen -->
+<div id="profile" class="page">
+    <div class="h-11 w-full flex justify-between items-center px-8 pt-6">
+        <span class="text-sm font-semibold">9:41</span>
+        <div class="flex gap-1.5 items-center">
+            <span class="material-icons-round text-xs" style="font-size: 14px;">signal_cellular_alt</span>
+            <span class="material-icons-round text-xs" style="font-size: 14px;">wifi</span>
+            <span class="material-icons-round text-xs" style="font-size: 14px;">battery_full</span>
+        </div>
+    </div>
+    <div class="max-w-md mx-auto px-5 pb-32">
+        <header class="flex items-center justify-between py-6">
+            <button onclick="showPage('home')" class="w-10 h-10 flex items-center justify-start text-primary">
+                <span class="material-icons-round text-3xl leading-none">chevron_left</span>
+            </button>
+            <h1 class="text-lg font-bold">User Profile & Settings</h1>
+            <div class="w-10"></div>
+        </header>
+        <div class="flex flex-col items-center mb-8">
+            <div class="relative">
+                <div class="w-24 h-24 rounded-full overflow-hidden border-4 border-white dark:border-slate-800 shadow-md">
+                    <img alt="User Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBj3R_OpO1V5xUxaH-ApLaaMP13iRPJ_vDmG0jm2X-3G8AyE1Zxzu8aZMYzarZtC9XcVauTicN9bPUZK4ACJHgGeeg9E8MaUfkWPBfFhXxyKN059bWdz8Xyc_CcmHi9NhmEexxxLyUE47_yqu4hRQEU12bYoWeDM5U6uK3K-5csYxvONfJN6j7V36e1WQBDeOzP_affHlD3ne_GJ0c1jIMkRMT_Svx10f_NCjgvxaEIzjF7HAPgbt0lcsEDLkpjD29p-NLY06wKwHhR"/>
+                </div>
+                <div class="absolute bottom-0 right-0 bg-primary w-7 h-7 rounded-full flex items-center justify-center border-2 border-white dark:border-slate-800 shadow-sm">
+                    <span class="material-icons-round text-white text-xs">edit</span>
+                </div>
+            </div>
+            <h2 class="mt-4 text-2xl font-bold tracking-tight">Sophie</h2>
+            <p class="text-slate-500 dark:text-slate-400 text-sm font-medium">NTU Member Since 2023</p>
+        </div>
+        <section class="mb-8">
+            <h3 class="text-sm font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-4 px-1">Personal Impact</h3>
+            <div class="grid grid-cols-2 gap-3">
+                <div class="bg-white dark:bg-slate-800 p-4 rounded-xl border border-slate-100 dark:border-slate-700/50 shadow-sm">
+                    <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center text-primary mb-3">
+                        <span class="material-icons-round">cloud_queue</span>
+                    </div>
+                    <p class="text-2xl font-bold">15.4<span class="text-xs font-medium text-slate-400 ml-1">kg</span></p>
+                    <p class="text-xs text-slate-500 font-medium">CO2 Saved</p>
+                </div>
+                <div class="bg-white dark:bg-slate-800 p-4 rounded-xl border border-slate-100 dark:border-slate-700/50 shadow-sm">
+                    <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center text-primary mb-3">
+                        <span class="material-icons-round">restaurant</span>
+                    </div>
+                    <p class="text-2xl font-bold">42</p>
+                    <p class="text-xs text-slate-500 font-medium">Meals Rescued</p>
+                </div>
+            </div>
+            <div class="mt-3 bg-primary/10 dark:bg-primary/5 p-3 rounded-xl flex items-center border border-primary/20">
+                <div class="bg-primary rounded-full p-1.5 mr-3">
+                    <span class="material-icons-round text-white text-sm">emoji_events</span>
+                </div>
+                <div>
+                    <p class="text-sm font-bold text-primary">Top 5% Eco-Warrior</p>
+                    <p class="text-[10px] text-primary/70 font-medium">Ranked among NTU students this month</p>
+                </div>
+                <span class="material-icons-round text-primary/40 ml-auto">chevron_right</span>
+            </div>
+        </section>
+        <section class="mb-8">
+            <h3 class="text-sm font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-4 px-1">App Preferences</h3>
+            <div class="bg-white dark:bg-slate-800 rounded-xl overflow-hidden border border-slate-100 dark:border-slate-700/50 shadow-sm divide-y divide-slate-50 dark:divide-slate-700/50">
+                <div class="p-4 flex items-center justify-between">
+                    <div class="flex items-center gap-3">
+                        <span class="material-icons-round text-slate-400">scale</span>
+                        <span class="text-sm font-medium">Default Portion</span>
+                    </div>
+                    <div class="flex items-center text-primary font-bold gap-1">
+                        <span class="text-sm">Small</span>
+                        <span class="material-icons-round text-lg">unfold_more</span>
+                    </div>
+                </div>
+                <div class="p-4 flex items-center justify-between">
+                    <div class="flex items-center gap-3">
+                        <span class="material-icons-round text-slate-400">no_food</span>
+                        <span class="text-sm font-medium">Dietary Needs</span>
+                    </div>
+                    <div class="flex items-center text-slate-400 font-medium gap-1">
+                        <span class="text-sm">None</span>
+                        <span class="material-icons-round text-lg">chevron_right</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="mb-8">
+            <div class="flex items-center justify-between mb-4 px-1">
+                <h3 class="text-sm font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">Privacy & Security</h3>
+                <span class="material-icons-round text-slate-300 dark:text-slate-600 text-lg">verified_user</span>
+            </div>
+            <div class="bg-white dark:bg-slate-800 rounded-xl overflow-hidden border border-slate-100 dark:border-slate-700/50 shadow-sm divide-y divide-slate-50 dark:divide-slate-700/50">
+                <div class="p-4 flex items-center justify-between">
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 rounded-lg bg-blue-50 dark:bg-blue-900/20 flex items-center justify-center text-blue-600 dark:text-blue-400">
+                            <span class="material-icons-round text-lg">credit_card</span>
+                        </div>
+                        <div>
+                            <p class="text-sm font-bold">NTU Pass Link</p>
+                            <p class="text-[10px] text-slate-400 font-medium leading-tight">Sync meal credits for automated checkout</p>
+                        </div>
+                    </div>
+                    <label class="ios-switch">
+                        <input checked type="checkbox"/>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <div class="p-4">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 rounded-lg bg-purple-50 dark:bg-purple-900/20 flex items-center justify-center text-purple-600 dark:text-purple-400">
+                                <span class="material-icons-round text-lg">face</span>
+                            </div>
+                            <div>
+                                <p class="text-sm font-bold">Facial Recognition</p>
+                                <p class="text-[10px] text-slate-400 font-medium leading-tight">Biometric login for secure payments</p>
+                            </div>
+                        </div>
+                        <label class="ios-switch">
+                            <input checked type="checkbox"/>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="mt-3 flex items-start gap-2 bg-slate-50 dark:bg-slate-900/50 p-2.5 rounded-lg">
+                    <span class="material-icons-round text-slate-400 text-sm mt-0.5">info</span>
+                    <p class="text-[10px] text-slate-500 leading-normal">Your biometric data is encrypted on-device and never shared with NTU servers. <a class="text-primary underline" href="#">Privacy Policy</a></p>
+                </div>
+            </div>
+        </div>
+        <button class="mt-6 w-full py-4 border-2 border-primary/20 dark:border-primary/10 rounded-xl flex items-center justify-center gap-3 text-primary font-bold hover:bg-primary/5 transition-colors">
+            <span class="material-icons-round">description</span>
+            <span>Download Waste Report</span>
+            <span class="text-xs font-medium opacity-60">(PDF/CSV)</span>
+        </button>
+        <section class="mb-12">
+            <button class="w-full text-center text-rose-500 font-bold text-sm py-4">
+                Delete Account & Data
+            </button>
+        </section>
+    </div>
+</div>
+
+<!-- Scan Success Popup -->
+<div id="scan-success-popup" class="fixed inset-0 bg-black/40 flex items-center justify-center px-6" style="display: none; z-index: 9999;">
+    <div class="bg-white dark:bg-slate-900 w-full max-w-sm rounded-2xl p-8 shadow-2xl text-center transform scale-100">
+        <div class="mb-6 relative">
+            <div class="w-20 h-20 bg-primary/10 rounded-full mx-auto flex items-center justify-center">
+                <div class="w-14 h-14 bg-primary rounded-full flex items-center justify-center text-white shadow-lg shadow-primary/30">
+                    <span class="material-icons text-3xl">check</span>
+                </div>
+            </div>
+        </div>
+        <h3 class="text-2xl font-bold mb-2">Scan Successful!</h3>
+        <div class="mb-4 inline-block px-4 py-1.5 bg-background-light dark:bg-primary/10 rounded-full">
+            <span class="text-sm font-medium">
+                Waste Detected: <span class="text-primary font-bold">8g</span>
+            </span>
+        </div>
+        <p class="text-slate-600 dark:text-slate-400 mb-6 leading-relaxed">
+            Great job, Sophie! You finished almost everything.
+        </p>
+        <div class="flex items-center justify-center gap-2 mb-8 bg-amber-50 dark:bg-amber-900/20 py-3 rounded-xl border border-amber-100 dark:border-amber-900/30">
+            <span class="material-icons text-amber-500">monetization_on</span>
+            <span class="font-bold text-amber-700 dark:text-amber-500">+10 Green Credits earned</span>
+        </div>
+        <div class="space-y-4">
+            <button onclick="showPage('analytics'); document.getElementById('scan-success-popup').style.display='none';" class="w-full bg-primary hover:bg-primary/90 text-white font-bold py-4 rounded-xl shadow-lg shadow-primary/20 transition-all active:scale-[0.98]">
+                View Impact
+            </button>
+            <button onclick="document.getElementById('scan-success-popup').style.display='none';" class="block w-full text-slate-500 dark:text-slate-400 text-sm font-medium hover:text-slate-700 dark:hover:text-slate-200 transition-colors">
+                Close
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Bottom Navigation -->
+<nav class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-md ios-blur bg-white/90 dark:bg-slate-900/90 border-t border-slate-200/60 dark:border-slate-800 pb-8 pt-3 px-8 z-50">
+    <div class="flex justify-between items-center relative">
+        <button onclick="showPage('home')" class="flex flex-col items-center gap-1 text-primary">
+            <span class="material-symbols-outlined text-[28px] font-variation-fill">home</span>
+            <span class="text-[10px] font-bold">Home</span>
+        </button>
+        <button onclick="showPage('analytics')" class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500">
+            <span class="material-symbols-outlined text-[28px]">analytics</span>
+            <span class="text-[10px] font-medium">Analytics</span>
+        </button>
+        <button onclick="startScan()" class="flex flex-col items-center gap-1 -mt-8 relative z-10">
+            <div class="w-14 h-14 rounded-full bg-primary flex items-center justify-center shadow-lg shadow-primary/30 border-4 border-white dark:border-slate-900">
+                <span class="material-symbols-outlined text-white text-[28px] font-variation-fill">qr_code_scanner</span>
+            </div>
+            <span class="text-[10px] text-primary font-bold mt-1">Scan</span>
+        </button>
+        <button onclick="showPage('rewards')" class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500">
+            <span class="material-symbols-outlined text-[28px]">card_giftcard</span>
+            <span class="text-[10px] font-medium">Rewards</span>
+        </button>
+        <button onclick="showPage('profile')" class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500">
+            <span class="material-symbols-outlined text-[28px]">person</span>
+            <span class="text-[10px] font-medium">Profile</span>
+        </button>
+    </div>
+    <div class="mt-5 flex justify-center">
+        <div class="h-1.5 w-32 bg-slate-200 dark:bg-slate-800 rounded-full"></div>
+    </div>
+</nav>
+
+<script>
+let currentPage = 'home';
+let credits = 450;
+let selectedPortion = 'regular';
+
+function showPage(pageId) {
+    document.querySelectorAll('.page').forEach(page => {
+        page.classList.remove('active');
+    });
+    document.getElementById(pageId).classList.add('active');
+    currentPage = pageId;
+    
+    // Update navigation active state
+    document.querySelectorAll('nav button').forEach(btn => {
+        btn.classList.remove('text-primary');
+        btn.classList.add('text-slate-400', 'dark:text-slate-500');
+        btn.querySelector('span').classList.remove('font-variation-fill');
+    });
+    
+    const navMap = {
+        'home': 0,
+        'analytics': 1,
+        'rewards': 3,
+        'profile': 4
+    };
+    
+    if (navMap[pageId] !== undefined) {
+        const navBtn = document.querySelectorAll('nav button')[navMap[pageId]];
+        navBtn.classList.remove('text-slate-400', 'dark:text-slate-500');
+        navBtn.classList.add('text-primary');
+        navBtn.querySelector('span').classList.add('font-variation-fill');
+    }
+}
+
+function selectPortion(size) {
+    selectedPortion = size;
+    const scales = { small: 0.7, regular: 1.0, large: 1.3 };
+    const plateContainer = document.getElementById('plate-container');
+    plateContainer.style.transform = `scale(${scales[size]})`;
+    
+    // Update button states
+    document.querySelectorAll('#portion-selection button[onclick^="selectPortion"]').forEach(btn => {
+        btn.classList.remove('border-primary', 'bg-primary/5', 'dark:bg-primary/10');
+        btn.classList.add('border-slate-100', 'dark:border-slate-800', 'bg-white', 'dark:bg-slate-800');
+        const icon = btn.querySelector('.material-icons:last-child');
+        icon.textContent = 'radio_button_unchecked';
+        icon.classList.remove('text-primary');
+        icon.classList.add('text-slate-300');
+    });
+    
+    const activeBtn = event.target.closest('button');
+    activeBtn.classList.remove('border-slate-100', 'dark:border-slate-800', 'bg-white', 'dark:bg-slate-800');
+    activeBtn.classList.add('border-primary', 'bg-primary/5', 'dark:bg-primary/10');
+    const activeIcon = activeBtn.querySelector('.material-icons:last-child');
+    activeIcon.textContent = 'check_circle';
+    activeIcon.classList.remove('text-slate-300');
+    activeIcon.classList.add('text-primary');
+}
+
+function confirmOrder() {
+    setTimeout(() => {
+        showPage('home');
+    }, 500);
+}
+
+function switchView(view) {
+    const personalView = document.getElementById('personal-view');
+    const communityView = document.getElementById('community-view');
+    const personalBtn = document.getElementById('personal-btn');
+    const communityBtn = document.getElementById('community-btn');
+    
+    if (view === 'personal') {
+        personalView.style.display = 'block';
+        communityView.style.display = 'none';
+        personalBtn.classList.add('bg-white', 'dark:bg-slate-700', 'shadow-sm', 'text-slate-900', 'dark:text-white', 'font-bold');
+        personalBtn.classList.remove('font-medium', 'text-slate-500', 'dark:text-slate-400');
+        communityBtn.classList.remove('bg-white', 'dark:bg-slate-700', 'shadow-sm', 'text-slate-900', 'dark:text-white', 'font-bold');
+        communityBtn.classList.add('font-medium', 'text-slate-500', 'dark:text-slate-400');
+    } else {
+        personalView.style.display = 'none';
+        communityView.style.display = 'block';
+        communityBtn.classList.add('bg-white', 'dark:bg-slate-700', 'shadow-sm', 'text-slate-900', 'dark:text-white', 'font-bold');
+        communityBtn.classList.remove('font-medium', 'text-slate-500', 'dark:text-slate-400');
+        personalBtn.classList.remove('bg-white', 'dark:bg-slate-700', 'shadow-sm', 'text-slate-900', 'dark:text-white', 'font-bold');
+        personalBtn.classList.add('font-medium', 'text-slate-500', 'dark:text-slate-400');
+    }
+}
+
+function startScan() {
+    showPage('scan');
+    
+    const step1 = document.getElementById('step1');
+    const step2 = document.getElementById('step2');
+    
+    if (!step1 || !step2) {
+        console.error('Step elements not found');
+        return;
+    }
+    
+    // Simulate scanning process - Step 1 completes
+    setTimeout(() => {
+        if (step1) {
+            step1.className = 'glass-panel p-3 rounded-2xl border-l-4 border-l-scanning flex items-center gap-4';
+            const step1Content = step1.innerHTML;
+            step1.innerHTML = `
+                <div class="w-6 h-6 flex items-center justify-center rounded-full bg-scanning/20 text-scanning text-[10px] font-bold">1</div>
+                <div class="flex-1">
+                    <p class="text-white text-[11px] font-bold uppercase tracking-tight">Step 1: Automatic Scan</p>
+                    <p class="text-scanning text-[10px]">Complete!</p>
+                </div>
+                <span class="material-symbols-outlined text-scanning text-sm" style="font-size: 20px;">check_circle</span>
+            `;
+        }
+    }, 2000);
+    
+    // Simulate scanning process - Step 2 completes
+    setTimeout(() => {
+        if (step2) {
+            step2.className = 'glass-panel p-3 rounded-2xl border-l-4 border-l-scanning flex items-center gap-4';
+            step2.innerHTML = `
+                <div class="w-6 h-6 flex items-center justify-center rounded-full bg-scanning/20 text-scanning text-[10px] font-bold">2</div>
+                <div class="flex-1">
+                    <p class="text-white text-[11px] font-bold uppercase tracking-tight">Step 2: Identifying User</p>
+                    <p class="text-scanning text-[10px]">User identified!</p>
+                </div>
+                <span class="material-symbols-outlined text-scanning text-sm" style="font-size: 20px;">check_circle</span>
+            `;
+        }
+        
+        // Show popup after both steps complete
+        setTimeout(() => {
+            showPage('home');
+            setTimeout(() => {
+                const popup = document.getElementById('scan-success-popup');
+                if (popup) {
+                    popup.style.display = 'flex';
+                    popup.style.zIndex = '99999';
+                    popup.style.position = 'fixed';
+                } else {
+                    console.error('Popup element not found!');
+                }
+                credits += 10;
+                updateCredits();
+            }, 100);
+        }, 500);
+    }, 3500);
+}
+
+function redeemReward(cost) {
+    if (credits >= cost) {
+        if (confirm(`Redeem this reward for ${cost} credits?`)) {
+            credits -= cost;
+            updateCredits();
+            alert('Reward redeemed successfully!');
+        }
+    } else {
+        alert('Insufficient credits!');
+    }
+}
+
+function updateCredits() {
+    const balanceEl = document.getElementById('credits-balance');
+    if (balanceEl) {
+        balanceEl.textContent = credits;
+    }
+    const progress = (credits / 500) * 100;
+    const progressBar = document.getElementById('progress-bar');
+    const progressPercent = document.getElementById('progress-percent');
+    if (progressBar) {
+        progressBar.style.width = Math.min(progress, 100) + '%';
+    }
+    if (progressPercent) {
+        progressPercent.textContent = Math.round(Math.min(progress, 100)) + '%';
+    }
+}
+
+// Initialize
+showPage('home');
+</script>
+
+</body>
+</html>

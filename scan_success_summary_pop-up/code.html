@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13e71a",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#102211",
+                    },
+                    fontFamily: {
+                        "display": ["Epilogue"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<title>ClearPlate - Scan Success</title>
+<style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-800 dark:text-slate-100 min-h-screen flex items-center justify-center p-4">
+<div class="relative w-full max-w-[390px] h-[844px] bg-white dark:bg-slate-900 rounded-[3rem] border-[8px] border-slate-800 overflow-hidden shadow-2xl">
+<div class="flex justify-between items-center px-8 pt-4 pb-2 text-sm font-semibold">
+<span>9:41</span>
+<div class="flex gap-1.5 items-center">
+<span class="material-icons text-[14px]">signal_cellular_alt</span>
+<span class="material-icons text-[14px]">wifi</span>
+<span class="material-icons text-[18px]">battery_full</span>
+</div>
+</div>
+<div class="px-6 py-4 filter blur-md opacity-40 select-none">
+<div class="flex justify-between items-center mb-8">
+<div>
+<p class="text-slate-500 text-sm">Hello,</p>
+<h2 class="text-2xl font-bold">Alex</h2>
+</div>
+<div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
+<span class="material-icons text-primary">person</span>
+</div>
+</div>
+<div class="bg-primary/10 rounded-xl p-4 mb-6">
+<p class="text-xs uppercase tracking-wider text-primary font-bold mb-1">Weekly Goal</p>
+<div class="h-2 w-full bg-white rounded-full overflow-hidden">
+<div class="bg-primary h-full w-3/4"></div>
+</div>
+<p class="mt-2 text-sm">75% of your target reached</p>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-slate-100 dark:bg-slate-800 p-4 rounded-xl">
+<p class="text-xs text-slate-500">Total Credits</p>
+<p class="text-xl font-bold">420</p>
+</div>
+<div class="bg-slate-100 dark:bg-slate-800 p-4 rounded-xl">
+<p class="text-xs text-slate-500">Waste Saved</p>
+<p class="text-xl font-bold">1.2kg</p>
+</div>
+</div>
+</div>
+<div class="absolute top-12 left-0 right-0 px-4 z-50">
+<div class="bg-white/90 dark:bg-slate-800/90 backdrop-blur-md rounded-2xl p-4 shadow-lg border border-slate-200/50 dark:border-slate-700/50 flex items-start gap-3">
+<div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center shrink-0 shadow-sm">
+<span class="material-icons text-white text-xl">eco</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-center mb-0.5">
+<span class="text-xs font-bold text-slate-500 uppercase tracking-tight">ClearPlate</span>
+<span class="text-[10px] text-slate-400">now</span>
+</div>
+<p class="text-[13px] leading-tight font-medium">Tray returned! 8g waste recorded. +10 credits added.</p>
+</div>
+</div>
+</div>
+<div class="absolute inset-0 bg-black/40 flex items-center justify-center px-6 z-40">
+<div class="bg-white dark:bg-slate-900 w-full rounded-2xl p-8 shadow-2xl text-center transform scale-100">
+<div class="mb-6 relative">
+<div class="w-20 h-20 bg-primary/10 rounded-full mx-auto flex items-center justify-center">
+<div class="w-14 h-14 bg-primary rounded-full flex items-center justify-center text-white shadow-lg shadow-primary/30">
+<span class="material-icons text-3xl">check</span>
+</div>
+</div>
+</div>
+<h3 class="text-2xl font-bold mb-2">Scan Successful!</h3>
+<div class="mb-4 inline-block px-4 py-1.5 bg-background-light dark:bg-primary/10 rounded-full">
+<span class="text-sm font-medium">Waste Detected: <span class="text-primary font-bold">8g</span></span>
+</div>
+<p class="text-slate-600 dark:text-slate-400 mb-6 leading-relaxed">
+                    Great job, Alex! You finished almost everything.
+                </p>
+<div class="flex items-center justify-center gap-2 mb-8 bg-amber-50 dark:bg-amber-900/20 py-3 rounded-xl border border-amber-100 dark:border-amber-900/30">
+<span class="material-icons text-amber-500">monetization_on</span>
+<span class="font-bold text-amber-700 dark:text-amber-500">+10 Green Credits earned</span>
+</div>
+<div class="space-y-4">
+<button class="w-full bg-primary hover:bg-primary/90 text-white font-bold py-4 rounded-xl shadow-lg shadow-primary/20 transition-all active:scale-[0.98]">
+                        View Impact
+                    </button>
+<button class="block w-full text-slate-500 dark:text-slate-400 text-sm font-medium hover:text-slate-700 dark:hover:text-slate-200 transition-colors">
+                        Close
+                    </button>
+</div>
+</div>
+</div>
+<div class="absolute bottom-0 left-0 right-0 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md px-4 pt-3 pb-8 flex justify-around items-end border-t border-slate-100 dark:border-slate-800">
+<div class="flex flex-col items-center gap-1 opacity-20">
+<span class="material-symbols-outlined text-[28px]">home</span>
+<span class="text-[10px] font-medium">Home</span>
+</div>
+<div class="flex flex-col items-center gap-1 opacity-20">
+<span class="material-symbols-outlined text-[28px]">analytics</span>
+<span class="text-[10px] font-medium">Analytics</span>
+</div>
+<div class="flex flex-col items-center gap-1 opacity-20">
+<div class="w-14 h-14 bg-primary rounded-full flex items-center justify-center -mb-4 shadow-lg shadow-primary/40 text-white">
+<span class="material-symbols-outlined text-3xl">qr_code_scanner</span>
+</div>
+<span class="text-[10px] font-medium mt-4">Scan</span>
+</div>
+<div class="flex flex-col items-center gap-1 opacity-20">
+<span class="material-symbols-outlined text-[28px]">redeem</span>
+<span class="text-[10px] font-medium">Rewards</span>
+</div>
+<div class="flex flex-col items-center gap-1 opacity-20">
+<span class="material-symbols-outlined text-[28px]">account_circle</span>
+<span class="text-[10px] font-medium">Profile</span>
+</div>
+</div>
+<div class="absolute bottom-1 left-1/2 -translate-x-1/2 w-32 h-1.5 bg-slate-800 dark:bg-slate-100 rounded-full opacity-20"></div>
+</div>
+
+</body></html>

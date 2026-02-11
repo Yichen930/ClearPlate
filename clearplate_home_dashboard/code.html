@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ClearPlate Home Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#4cae4f",
+                        "background-light": "#f6f7f6",
+                        "background-dark": "#151d15",
+                    },
+                    fontFamily: {
+                        "display": ["Epilogue", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        body {
+            font-family: 'Epilogue', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .ios-blur {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen font-display">
+<div class="h-12 w-full"></div>
+<main class="max-w-md mx-auto px-5 pb-32">
+<header class="flex justify-between items-center py-4">
+<div class="flex items-center gap-2">
+<div class="bg-primary p-1.5 rounded-lg">
+<span class="material-icons-round text-white text-xl">eco</span>
+</div>
+<h1 class="text-xl font-bold tracking-tight text-slate-800 dark:text-white">ClearPlate</h1>
+</div>
+<div class="flex gap-3">
+<button class="w-10 h-10 rounded-full bg-white dark:bg-slate-800 shadow-sm flex items-center justify-center border border-primary/10">
+<span class="material-icons-round text-slate-600 dark:text-slate-300">notifications_none</span>
+</button>
+<div class="w-10 h-10 rounded-full bg-primary/20 overflow-hidden border-2 border-primary">
+<img alt="Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAz3c_EknA6iXi6hyiliLzpAMrny_JAwanbc1EUXZ4Tbd__mnk11TNnGrd7B_I220KsGcQ8whmgd0V9CFk-YXklH9kNGRgYAYAJ-_jo-0A2vUdSeT9LFUAYmkq4JAxPJ4kiW7TsmlvymK8Sxao4aNA8NLtyakmIMXgdEX6o8IrJGUXRWkJ1io2iLhKkW6OdqRwT7HLpy3fnPDCYxrFIl0L4PEcbqXhlIcPgxT1MkCSvRlrT6FoiFj73QBlAwICWiOFbDxN-ScEaOlyW"/>
+</div>
+</div>
+</header>
+<section class="mt-4 mb-6">
+<p class="text-slate-500 dark:text-slate-400 text-sm">Welcome back, NTU Student</p>
+<h2 class="text-2xl font-bold">Eat Green Today 🌿</h2>
+</section>
+<section class="relative">
+<div class="flex items-center justify-between mb-3">
+<h3 class="font-bold text-lg">AI Recommendation</h3>
+<span class="text-xs font-semibold px-2 py-1 bg-primary/10 text-primary rounded-full uppercase tracking-wider">Live Logic</span>
+</div>
+<div class="bg-white dark:bg-slate-900 rounded-xl shadow-xl shadow-primary/5 overflow-hidden border border-primary/20 ring-1 ring-primary/5">
+<div class="relative h-48 w-full">
+<img class="w-full h-full object-cover" data-alt="Delicious plate of Hainanese Chicken Rice" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsBlmMni92siZ8ccVAUCIcNnk1tHu5fODd_31BADgtYE3FWlir9v7noQR_gIrbzig0UT7GFj8H62e8g3vVsqxw5sH4ViEP-c5GMrKEZ4q83nw1mjeyzchez0Mu_LP8_1WcC5Vajg7sXSHOekgruh8WWwImB2YVkp0DTTiZ4XjXOgYSuwy-WPS7Ne6wIELseQ9EbXZPd2vyjPQskG0BRWDFTzJD9rm3mYELQgTwOJzDv_LJaBIo-ynaH5Dd14vtjDbcsshFWfhEPgC2"/>
+<div class="absolute top-3 left-3 flex gap-2">
+<span class="bg-primary text-white text-[10px] font-bold px-2 py-1 rounded-full uppercase flex items-center gap-1">
+<span class="material-icons-round text-xs">trending_down</span> Low Waste
+                    </span>
+<span class="bg-white/90 dark:bg-slate-800/90 text-slate-800 dark:text-white text-[10px] font-bold px-2 py-1 rounded-full uppercase flex items-center gap-1">
+<span class="material-icons-round text-xs text-primary">verified</span> 92% Confidence
+                    </span>
+</div>
+</div>
+<div class="p-5">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h4 class="text-xl font-bold">Chicken Rice</h4>
+<p class="text-slate-500 text-sm flex items-center gap-1">
+<span class="material-icons-round text-sm">location_on</span> Koufu @ North Spine
+                        </p>
+</div>
+<div class="text-right">
+<p class="text-primary font-bold text-lg">$4.50</p>
+<p class="text-[10px] text-slate-400 uppercase font-medium">Standard Price</p>
+</div>
+</div>
+<button class="w-full bg-primary hover:bg-primary/90 text-white font-bold py-3.5 rounded-lg transition-all flex items-center justify-center gap-2 mb-3">
+<span class="material-icons-round">shopping_cart</span>
+                    Order Now
+                </button>
+<div class="text-center">
+<a class="text-xs font-medium text-slate-400 hover:text-primary flex items-center justify-center gap-1 transition-colors" href="#">
+                        Why this recommendation? <span class="material-icons-round text-xs">info</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<section class="mt-8">
+<div class="flex items-center justify-between mb-4">
+<h3 class="font-bold text-lg">Other Stalls</h3>
+<button class="text-primary text-sm font-semibold">See All</button>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-white dark:bg-slate-900 p-3 rounded-xl border border-slate-100 dark:border-slate-800 shadow-sm">
+<div class="relative rounded-lg overflow-hidden h-28 mb-3">
+<img class="w-full h-full object-cover" data-alt="Western food grilled chicken with fries" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDeD6TeI-vpy8vkoE1fyUkLqj524eglqX7Jbgv9W-iMnFskk8ob8nM1S7rFT6eOJur8zzfL810VdZ9HroApiGMxpvSJLbTnFq2qToNnVcLTOaOV9ADc0Zu0MRXostkp6bNZksYa6ca5Lea-SbXLvrJaZ6IvdMty-YtFhOJCLHIhS-KN73NWPPWU12Ew5slV5_ksHe9Rga5JAAjYy04CjAI0M6RzCXi0HeBreti2VE0abFvTcK19UbMfJXMHm97kjw08GyS6dIRo_CxA"/>
+<div class="absolute bottom-2 left-2 bg-yellow-500 text-white text-[9px] font-bold px-2 py-0.5 rounded-full">MED WASTE</div>
+</div>
+<h5 class="font-bold text-sm">Western Food</h5>
+<p class="text-slate-400 text-[10px] mb-2">12 mins wait</p>
+<div class="flex items-center gap-1 text-xs font-medium text-primary">
+<span class="material-icons-round text-sm">star</span> 4.8
+                </div>
+</div>
+<div class="bg-white dark:bg-slate-900 p-3 rounded-xl border border-slate-100 dark:border-slate-800 shadow-sm">
+<div class="relative rounded-lg overflow-hidden h-28 mb-3">
+<img class="w-full h-full object-cover" data-alt="Spicy mala xiang guo bowl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDQxQTj100YlFtzdPzH6hy3or_ybB_tqrfgJXeqwHsbg9uz7Yp4dqSAeNlSuHqzQ7RajgKPCfhseTjOGy2ZMnMBs9uiU8GxTvbJDVQWFEnPiqPazZdt0bueJoMW5ezM5ymh3TTpAACwZMzz8Yftum1eVOgxjpRsQhkRUbjhEt79QBqWIUbRWv1LxFd0zeKBHlyxqRJQ1fMR--K4sfX9Nw4LVB5jwFwbBDkntUgJesvDegeLvlKYkJxHbjjTk25HUXGgujnlrzCtYpu"/>
+<div class="absolute bottom-2 left-2 bg-red-500 text-white text-[9px] font-bold px-2 py-0.5 rounded-full">HIGH WASTE</div>
+</div>
+<h5 class="font-bold text-sm">Mala Xiang Guo</h5>
+<p class="text-slate-400 text-[10px] mb-2">20 mins wait</p>
+<div class="flex items-center gap-1 text-xs font-medium text-primary">
+<span class="material-icons-round text-sm">star</span> 4.9
+                </div>
+</div>
+<div class="bg-white dark:bg-slate-900 p-3 rounded-xl border border-slate-100 dark:border-slate-800 shadow-sm">
+<div class="relative rounded-lg overflow-hidden h-28 mb-3">
+<img class="w-full h-full object-cover" data-alt="Korean bibimbap bowl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgFAiA_dcO4eg0rBswoHLA0V9hUTZv8uVtNVyCEywKAAArytUbxo2Ee1aRh4kBen4dxtJWHDYlLpqL0I1Ij7PL6FqU_9jBARVKCWkXRjRcA0X_dhRTwQDdy9XSe-gg9uUSnYfYwBjce0MZ2vfQ2p1oH-5MHnuYJ9f3UspixJDFoQUA1VnlYzX2eMkBNmg50ErW4NahwqqlahRThJVJVHrwjTmfgT2-Wtr_vVHjTh3PaheJ1fnXwqRVvMYjlWFaGe4dGBxyqWYx6maD"/>
+<div class="absolute bottom-2 left-2 bg-primary text-white text-[9px] font-bold px-2 py-0.5 rounded-full">LOW WASTE</div>
+</div>
+<h5 class="font-bold text-sm">Korean Fusion</h5>
+<p class="text-slate-400 text-[10px] mb-2">8 mins wait</p>
+<div class="flex items-center gap-1 text-xs font-medium text-primary">
+<span class="material-icons-round text-sm">star</span> 4.6
+                </div>
+</div>
+<div class="bg-white dark:bg-slate-900 p-3 rounded-xl border border-slate-100 dark:border-slate-800 shadow-sm">
+<div class="relative rounded-lg overflow-hidden h-28 mb-3">
+<img class="w-full h-full object-cover" data-alt="Japanese bento box with salmon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0vNnSL0JNSlgme8lKxoaLHnURHpYQn0brGyWVsNLSb_jDXHBfTEz8_GBppsKT6b4whbN01phRM5ad0I41teeA5CD1DZ_O-xVei4VmfJIo2hjMGPs03Bs4shqID_wqtyv8RNqF_BUokeuIgbE0bJ-hBDPXK-1OeqirY4l6Ssj6PYrvnrcKis8eCM0OyqpngBgB5ivEIxlcmR_H47Y--PbW6h1SPumirirLSV1z0kmJ1_oM9joEMmzrhamJk5oGdbgzLqYditdc4Psm"/>
+<div class="absolute bottom-2 left-2 bg-primary text-white text-[9px] font-bold px-2 py-0.5 rounded-full">LOW WASTE</div>
+</div>
+<h5 class="font-bold text-sm">Nippon Bites</h5>
+<p class="text-slate-400 text-[10px] mb-2">15 mins wait</p>
+<div class="flex items-center gap-1 text-xs font-medium text-primary">
+<span class="material-icons-round text-sm">star</span> 4.7
+                </div>
+</div>
+</div>
+</section>
+</main>
+<nav class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-md ios-blur bg-white/90 dark:bg-slate-900/90 border-t border-slate-200/60 dark:border-slate-800 pb-8 pt-3 px-8 z-50">
+<div class="flex justify-between items-center">
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined font-variation-fill text-[28px]">home</span>
+<span class="text-[10px] font-bold">Home</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500" href="#">
+<span class="material-symbols-outlined text-[28px]">analytics</span>
+<span class="text-[10px] font-medium">Analytics</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500" href="#">
+<span class="material-symbols-outlined text-[28px]">card_giftcard</span>
+<span class="text-[10px] font-medium">Rewards</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500" href="#">
+<span class="material-symbols-outlined text-[28px]">person</span>
+<span class="text-[10px] font-medium">Profile</span>
+</a>
+</div>
+<div class="mt-5 flex justify-center">
+<div class="h-1.5 w-32 bg-slate-200 dark:bg-slate-800 rounded-full"></div>
+</div>
+</nav>
+<style type="text/tailwindcss">
+    .font-variation-fill {
+        font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 48;
+    }
+</style>
+
+</body></html>

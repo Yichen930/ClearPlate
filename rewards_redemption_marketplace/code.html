@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ClearPlate Rewards Marketplace</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13e71a",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#102211",
+                        "neutral-green": "#4a5d4b",
+                        "surface": "#ffffff",
+                    },
+                    fontFamily: {
+                        "display": ["Epilogue", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            -webkit-tap-highlight-color: transparent;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-neutral-900 dark:text-white antialiased">
+<!-- Mobile Container (Simulating iPhone dimensions) -->
+<div class="max-w-[430px] mx-auto min-h-screen bg-background-light dark:bg-background-dark relative flex flex-col pb-24">
+<!-- Status Bar Area (iOS Style) -->
+<div class="h-12 flex items-center justify-between px-8 pt-4">
+<span class="text-sm font-semibold">9:41</span>
+<div class="flex gap-1.5 items-center">
+<span class="material-icons text-base">signal_cellular_alt</span>
+<span class="material-icons text-base">wifi</span>
+<span class="material-icons text-base">battery_full</span>
+</div>
+</div>
+<!-- Header -->
+<header class="px-6 py-4 flex justify-between items-center">
+<h1 class="text-2xl font-bold tracking-tight">Your Rewards</h1>
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary">
+<img class="w-full h-full object-cover" data-alt="User profile avatar smiling student" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhRzxvkjTjjvaYSyA7d6H_nHoKbK6DHyx8yBNmtd-HgqLIHm9NKbN0OGkGSXNsJ_Mb1XPQCQRF3nlUGN3k4YVJuoD0GBfTS7K61dQFuWwi0cuorvu6FonK2RV6rKJrjLZCoiC6v6tH62dIYX1_suxiI_QE4EmCdYH2gpX_H0-tGxe_N_6EBJYf5zqvz4emG06G2on67umsjLfuEGT8ZGqOxp568rrkiMeyKFk1B0NgswRkKvei_7qVqMqZxlAMO0Aj6p1uAcyJUm6M"/>
+</div>
+</header>
+<!-- Balance Card -->
+<div class="px-6 py-2">
+<div class="bg-primary/10 dark:bg-primary/20 rounded-xl p-6 border border-primary/20 relative overflow-hidden">
+<div class="absolute -right-4 -top-4 w-24 h-24 bg-primary/10 rounded-full blur-2xl"></div>
+<p class="text-sm font-medium text-neutral-green dark:text-primary/80 uppercase tracking-wider">Current Balance</p>
+<div class="flex items-center gap-3 mt-1">
+<span class="text-4xl font-bold text-neutral-900 dark:text-white">450</span>
+<div class="flex flex-col">
+<span class="text-lg font-bold text-primary">Credits</span>
+<div class="flex items-center gap-1">
+<span class="material-icons text-xs text-primary">eco</span>
+<span class="text-[10px] text-neutral-green dark:text-primary/60 font-medium">Sustainability Hero</span>
+</div>
+</div>
+</div>
+<div class="mt-4 flex items-center justify-between bg-white/50 dark:bg-black/20 p-3 rounded-lg backdrop-blur-sm">
+<p class="text-xs font-medium text-neutral-700 dark:text-neutral-300">Keep clearing your plate to earn more!</p>
+<span class="material-icons text-primary text-sm">trending_up</span>
+</div>
+</div>
+</div>
+<!-- Quick Filters -->
+<div class="px-6 py-6 flex gap-3 overflow-x-auto hide-scrollbar">
+<button class="px-5 py-2 rounded-full bg-primary text-white text-sm font-semibold whitespace-nowrap">All Items</button>
+<button class="px-5 py-2 rounded-full bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-sm font-medium whitespace-nowrap">Vouchers</button>
+<button class="px-5 py-2 rounded-full bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-sm font-medium whitespace-nowrap">Merchandise</button>
+<button class="px-5 py-2 rounded-full bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-sm font-medium whitespace-nowrap">Eco-Gear</button>
+</div>
+<!-- Rewards List -->
+<main class="px-6 space-y-6 flex-1">
+<!-- Reward Item 1 -->
+<div class="bg-white dark:bg-neutral-900 rounded-xl overflow-hidden shadow-sm border border-neutral-100 dark:border-neutral-800 flex flex-col">
+<div class="relative h-40">
+<img class="w-full h-full object-cover" data-alt="Healthy salad bowl with fresh vegetables" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDASSYdVt6O8IV8hK96TiKamd6u3YmJpQ_eQX1hdZkS2AVrGsaOQSQVoExWyt2Qy-qpYF641qxm38R9Me8kM_UaytiaLAGQ3EcJVP5priXfChA9yVFb8EUfRklm8kzgEUGthc6eHuYAFhtdx7bIP45Dd5kaOAo3NcWpaPXVK78ZmlxE_8_hHa4FV_asFyj9Lppu2E0jMQ3BsUWTBq1GPdXh9gXJ5Rc_ze9byuvrt3pamBBw_mJPQ6QbPRNf1VLuQvinavTfa1bAs_ib"/>
+<div class="absolute top-3 right-3 bg-white/90 dark:bg-black/80 backdrop-blur-md px-3 py-1 rounded-full flex items-center gap-1">
+<span class="material-icons text-primary text-sm">confirmation_number</span>
+<span class="text-xs font-bold">Food Voucher</span>
+</div>
+</div>
+<div class="p-4 flex flex-col gap-3">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-bold text-lg leading-tight">$1 Off Next Meal</h3>
+<p class="text-sm text-neutral-500 dark:text-neutral-400 mt-1">Valid at North Spine Plaza &amp; Canteen 2</p>
+</div>
+<div class="flex flex-col items-end">
+<span class="text-primary font-bold">100</span>
+<span class="text-[10px] text-neutral-400 font-bold uppercase">Credits</span>
+</div>
+</div>
+<button class="w-full py-3 bg-primary hover:bg-primary/90 text-white rounded-lg font-bold transition-all active:scale-[0.98]">Redeem Now</button>
+</div>
+</div>
+<!-- Reward Item 2 -->
+<div class="bg-white dark:bg-neutral-900 rounded-xl overflow-hidden shadow-sm border border-neutral-100 dark:border-neutral-800 flex flex-col">
+<div class="relative h-40">
+<img class="w-full h-full object-cover" data-alt="Traditional iced coffee in a cup" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuwCMdqA2G7M90UlVaOzYdwlVWZauLcTK5uxhQaktw--FhFxk0ui_Zxu4UgcWOKOHBpDJyXWjDVSVmwK1B534ILJIrD33BX3i1bdtcb-D6bXkxowArFDJy6LiKbbzn94hBlmKeaN6UWyAPhJ9N7M44mhKwUizyeve_VOaSCJJroKtDSAoil8Bq6Sp1FgBMreXRyKkdHgv7_HltKISfvREcq8M7St08G9PT7Ba9RLb8aNEODoSwLszVGqZWWP7F8JszjGDH2dM1CQvC"/>
+<div class="absolute top-3 right-3 bg-white/90 dark:bg-black/80 backdrop-blur-md px-3 py-1 rounded-full flex items-center gap-1">
+<span class="material-icons text-primary text-sm">local_cafe</span>
+<span class="text-xs font-bold">Beverage</span>
+</div>
+</div>
+<div class="p-4 flex flex-col gap-3">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-bold text-lg leading-tight">Free Drink at Koufu</h3>
+<p class="text-sm text-neutral-500 dark:text-neutral-400 mt-1">Choice of Coffee, Tea or Milo</p>
+</div>
+<div class="flex flex-col items-end">
+<span class="text-primary font-bold">150</span>
+<span class="text-[10px] text-neutral-400 font-bold uppercase">Credits</span>
+</div>
+</div>
+<button class="w-full py-3 bg-primary hover:bg-primary/90 text-white rounded-lg font-bold transition-all active:scale-[0.98]">Redeem Now</button>
+</div>
+</div>
+<!-- Reward Item 3 (High Cost / Goal State) -->
+<div class="bg-white dark:bg-neutral-900 rounded-xl overflow-hidden shadow-sm border border-neutral-100 dark:border-neutral-800 flex flex-col opacity-90">
+<div class="relative h-40">
+<img class="w-full h-full object-cover grayscale-[20%]" data-alt="Eco-friendly bamboo cutlery set in pouch" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxXtxyfBaiMIyWxSOoEMsFoRsYdElEsZt8Rhl_Iq80Zss4TRkJtjHKevsC-1Cax9wi5C8-w7swfW_6ExY2KvnIYIbjkCst2c9sqtrRiMhp7lbufG7s9AjtSqgvbniGYfoTjqmHOQalfRPMTT9Yxv_DnhzzcBEFQErB5sTps_Etc00iQuNzJjDj8SMZTW6o8izNnY36w6_824HtJAKty_6wWpW8zPc2GKYTffeMydQ5er3zYwV9SIllSXBW5IiuUAgIJVCyLFAL3050"/>
+<div class="absolute top-3 right-3 bg-white/90 dark:bg-black/80 backdrop-blur-md px-3 py-1 rounded-full flex items-center gap-1">
+<span class="material-icons text-primary text-sm">shopping_bag</span>
+<span class="text-xs font-bold">Merchandise</span>
+</div>
+<div class="absolute inset-0 bg-black/5 flex items-center justify-center">
+<div class="bg-black/60 backdrop-blur-md rounded-full px-4 py-1 flex items-center gap-2">
+<span class="material-icons text-white text-xs">lock</span>
+<span class="text-white text-xs font-semibold">Almost there!</span>
+</div>
+</div>
+</div>
+<div class="p-4 flex flex-col gap-3">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-bold text-lg leading-tight">Reusable Cutlery Set</h3>
+<p class="text-sm text-neutral-500 dark:text-neutral-400 mt-1">Limited Edition ClearPlate Bamboo Kit</p>
+</div>
+<div class="flex flex-col items-end">
+<span class="text-neutral-400 font-bold">500</span>
+<span class="text-[10px] text-neutral-400 font-bold uppercase">Credits</span>
+</div>
+</div>
+<!-- Progress Bar for high cost item -->
+<div class="space-y-1.5">
+<div class="flex justify-between text-[10px] font-bold text-neutral-500 uppercase tracking-tighter">
+<span>Your Progress</span>
+<span>90%</span>
+</div>
+<div class="w-full h-2 bg-neutral-100 dark:bg-neutral-800 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[90%] rounded-full shadow-[0_0_8px_rgba(19,231,26,0.5)]"></div>
+</div>
+</div>
+<button class="w-full py-3 bg-neutral-200 dark:bg-neutral-800 text-neutral-400 rounded-lg font-bold cursor-not-allowed">Insufficient Credits</button>
+</div>
+</div>
+<!-- Footer Spacing -->
+<div class="h-8"></div>
+</main>
+<!-- Bottom Navigation Bar (iOS Style) -->
+<nav class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[430px] bg-white/80 dark:bg-neutral-900/80 backdrop-blur-xl border-t border-neutral-200 dark:border-neutral-800 px-8 py-3 pb-8 flex justify-between items-center z-50">
+<button class="flex flex-col items-center gap-1 text-neutral-400 hover:text-primary transition-colors">
+<span class="material-icons">home</span>
+<span class="text-[10px] font-bold">HOME</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-neutral-400 hover:text-primary transition-colors">
+<span class="material-icons">qr_code_scanner</span>
+<span class="text-[10px] font-bold">SCAN</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-primary relative">
+<span class="material-icons">card_giftcard</span>
+<span class="text-[10px] font-bold">REWARDS</span>
+<div class="absolute -top-1 -right-1 w-1.5 h-1.5 bg-primary rounded-full"></div>
+</button>
+<button class="flex flex-col items-center gap-1 text-neutral-400 hover:text-primary transition-colors">
+<span class="material-icons">person_outline</span>
+<span class="text-[10px] font-bold">PROFILE</span>
+</button>
+</nav>
+<!-- iOS Home Indicator -->
+<div class="fixed bottom-1 left-1/2 -translate-x-1/2 w-32 h-1.5 bg-neutral-300 dark:bg-neutral-700 rounded-full z-[60]"></div>
+</div>
+</body></html>
