@@ -39,6 +39,9 @@
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
         }
+        .font-variation-fill {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 48;
+        }
         body {
             min-height: max(884px, 100dvh);
         }
@@ -51,7 +54,10 @@
   </head>
 <body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen font-display">
 <div class="h-12 w-full"></div>
-<main class="max-w-md mx-auto px-5 pb-32">
+<button class="fixed bottom-32 right-6 w-14 h-14 bg-primary text-white rounded-full shadow-lg z-40 flex items-center justify-center border-4 border-white dark:border-slate-900">
+<span class="material-icons-round text-3xl">group</span>
+</button>
+<main class="max-w-md mx-auto px-5 pb-40">
 <header class="flex justify-between items-center py-4">
 <div class="flex items-center gap-2">
 <div class="bg-primary p-1.5 rounded-lg">
@@ -59,7 +65,7 @@
 </div>
 <h1 class="text-xl font-bold tracking-tight text-slate-800 dark:text-white">ClearPlate</h1>
 </div>
-<div class="flex gap-3">
+<div class="flex gap-3 items-center">
 <button class="w-10 h-10 rounded-full bg-white dark:bg-slate-800 shadow-sm flex items-center justify-center border border-primary/10">
 <span class="material-icons-round text-slate-600 dark:text-slate-300">notifications_none</span>
 </button>
@@ -68,9 +74,15 @@
 </div>
 </div>
 </header>
-<section class="mt-4 mb-6">
+<section class="mt-4 mb-6 flex justify-between items-end">
+<div>
 <p class="text-slate-500 dark:text-slate-400 text-sm">Welcome back, NTU Student</p>
 <h2 class="text-2xl font-bold">Eat Green Today 🌿</h2>
+</div>
+<button class="flex items-center gap-1.5 bg-yellow-400/10 border border-yellow-400/20 px-3 py-1.5 rounded-full">
+<span class="material-icons-round text-yellow-500 text-lg">emoji_events</span>
+<span class="text-xs font-bold text-yellow-700 dark:text-yellow-400">12 Badges</span>
+</button>
 </section>
 <section class="relative">
 <div class="flex items-center justify-between mb-3">
@@ -83,10 +95,10 @@
 <div class="absolute top-3 left-3 flex gap-2">
 <span class="bg-primary text-white text-[10px] font-bold px-2 py-1 rounded-full uppercase flex items-center gap-1">
 <span class="material-icons-round text-xs">trending_down</span> Low Waste
-                    </span>
+                        </span>
 <span class="bg-white/90 dark:bg-slate-800/90 text-slate-800 dark:text-white text-[10px] font-bold px-2 py-1 rounded-full uppercase flex items-center gap-1">
 <span class="material-icons-round text-xs text-primary">verified</span> 92% Confidence
-                    </span>
+                        </span>
 </div>
 </div>
 <div class="p-5">
@@ -95,7 +107,7 @@
 <h4 class="text-xl font-bold">Chicken Rice</h4>
 <p class="text-slate-500 text-sm flex items-center gap-1">
 <span class="material-icons-round text-sm">location_on</span> Koufu @ North Spine
-                        </p>
+                            </p>
 </div>
 <div class="text-right">
 <p class="text-primary font-bold text-lg">$4.50</p>
@@ -104,12 +116,44 @@
 </div>
 <button class="w-full bg-primary hover:bg-primary/90 text-white font-bold py-3.5 rounded-lg transition-all flex items-center justify-center gap-2 mb-3">
 <span class="material-icons-round">shopping_cart</span>
-                    Order Now
-                </button>
+                        Order Now
+                    </button>
 <div class="text-center">
 <a class="text-xs font-medium text-slate-400 hover:text-primary flex items-center justify-center gap-1 transition-colors" href="#">
-                        Why this recommendation? <span class="material-icons-round text-xs">info</span>
+                            Why this recommendation? <span class="material-icons-round text-xs">info</span>
 </a>
+</div>
+</div>
+</div>
+</section>
+<section class="mt-8">
+<div class="flex items-center justify-between mb-4">
+<h3 class="font-bold text-lg">Social Pulse</h3>
+<button class="text-primary text-sm font-semibold">View All</button>
+</div>
+<div class="space-y-3">
+<div class="bg-white dark:bg-slate-900 p-3 rounded-xl border border-slate-100 dark:border-slate-800 shadow-sm flex items-center gap-3">
+<div class="w-12 h-12 rounded-full overflow-hidden flex-shrink-0 border border-slate-200">
+<img alt="Friend" class="w-full h-full object-cover bg-slate-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCjzMk6Llje-bCr0mEaDKJYi_1g6KnzqQcN4JU9IiX6Rv6GwxQLvY4tiJMFVEdC7eKX7DbmxCV4A2P5CLBxpS3ujvxvBxdsNJjLIjM1Jw8GNsqMs80liTXbfHiFbiKH87dWO-gEKiPcGxCLtJDauB7nEP08atm-BBcm6N12Z_tRcp1T7ypLDANhZeWRxBzPa9L2dnzOiptf5sUCE7qqUYI91fwfKoM02mQ2NK-RP_7-pRQPj2zKRaQJ7semCkEQ9XhcCjtRKMJyU406"/>
+</div>
+<div class="flex-1">
+<p class="text-sm font-bold text-slate-800 dark:text-slate-200">Felix just hit a <span class="text-primary">7-day Clean Streak!</span></p>
+<p class="text-[11px] text-slate-400 uppercase font-medium mt-0.5">2 mins ago • Fine Foods</p>
+</div>
+<div class="bg-primary/10 p-2 rounded-lg">
+<span class="material-icons-round text-primary text-xl">local_fire_department</span>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-900 p-3 rounded-xl border border-slate-100 dark:border-slate-800 shadow-sm flex items-center gap-3">
+<div class="w-12 h-12 rounded-full overflow-hidden flex-shrink-0 border border-slate-200">
+<img alt="Friend" class="w-full h-full object-cover bg-slate-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhY0fzdtUeciVG0wPtm2SCRwkkjmaxYqfk5bCnq1ko23FmP57NFIw-XaddSjAV2313hmBj0PdpkxA1WZSqfum0zv6ki33K7OV9E1L9PduTYQ6G-B8QLWdw4cOJVF9EfbRTwf-51pxF1S3xRPfvG_0wcS_4FDXabaDyYBDjtcifUqcOGVINBS4AmCTzRf5n5-kozq4HGkVW1Bz52PikUv1mLLgBE3_Pkq2M2o-t6KDv_dxcwNZgfiVTCXbf_c8N86CpckBrIZ7oYLaP"/>
+</div>
+<div class="flex-1">
+<p class="text-sm font-bold text-slate-800 dark:text-slate-200">Sarah earned the <span class="text-primary">Eco Warrior</span> badge!</p>
+<p class="text-[11px] text-slate-400 uppercase font-medium mt-0.5">1 hour ago • North Spine</p>
+</div>
+<div class="bg-yellow-400/10 p-2 rounded-lg">
+<span class="material-icons-round text-yellow-600 text-xl">workspace_premium</span>
 </div>
 </div>
 </div>
@@ -129,7 +173,7 @@
 <p class="text-slate-400 text-[10px] mb-2">12 mins wait</p>
 <div class="flex items-center gap-1 text-xs font-medium text-primary">
 <span class="material-icons-round text-sm">star</span> 4.8
-                </div>
+                    </div>
 </div>
 <div class="bg-white dark:bg-slate-900 p-3 rounded-xl border border-slate-100 dark:border-slate-800 shadow-sm">
 <div class="relative rounded-lg overflow-hidden h-28 mb-3">
@@ -140,7 +184,7 @@
 <p class="text-slate-400 text-[10px] mb-2">20 mins wait</p>
 <div class="flex items-center gap-1 text-xs font-medium text-primary">
 <span class="material-icons-round text-sm">star</span> 4.9
-                </div>
+                    </div>
 </div>
 <div class="bg-white dark:bg-slate-900 p-3 rounded-xl border border-slate-100 dark:border-slate-800 shadow-sm">
 <div class="relative rounded-lg overflow-hidden h-28 mb-3">
@@ -151,7 +195,7 @@
 <p class="text-slate-400 text-[10px] mb-2">8 mins wait</p>
 <div class="flex items-center gap-1 text-xs font-medium text-primary">
 <span class="material-icons-round text-sm">star</span> 4.6
-                </div>
+                    </div>
 </div>
 <div class="bg-white dark:bg-slate-900 p-3 rounded-xl border border-slate-100 dark:border-slate-800 shadow-sm">
 <div class="relative rounded-lg overflow-hidden h-28 mb-3">
@@ -162,38 +206,39 @@
 <p class="text-slate-400 text-[10px] mb-2">15 mins wait</p>
 <div class="flex items-center gap-1 text-xs font-medium text-primary">
 <span class="material-icons-round text-sm">star</span> 4.7
-                </div>
+                    </div>
 </div>
 </div>
 </section>
 </main>
-<nav class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-md ios-blur bg-white/90 dark:bg-slate-900/90 border-t border-slate-200/60 dark:border-slate-800 pb-8 pt-3 px-8 z-50">
+<nav class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-md ios-blur bg-white/90 dark:bg-slate-900/90 border-t border-slate-200/60 dark:border-slate-800 pb-8 pt-3 px-6 z-50">
 <div class="flex justify-between items-center">
 <a class="flex flex-col items-center gap-1 text-primary" href="#">
 <span class="material-symbols-outlined font-variation-fill text-[28px]">home</span>
-<span class="text-[10px] font-bold">Home</span>
+<span class="text-[10px] font-bold uppercase tracking-tight">Home</span>
 </a>
 <a class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500" href="#">
 <span class="material-symbols-outlined text-[28px]">analytics</span>
-<span class="text-[10px] font-medium">Analytics</span>
+<span class="text-[10px] font-medium uppercase tracking-tight">Analytics</span>
 </a>
+<div class="relative -top-8">
+<button class="w-14 h-14 bg-primary text-white rounded-full shadow-lg shadow-primary/30 flex items-center justify-center border-4 border-white dark:border-slate-900">
+<span class="material-icons-round text-3xl">qr_code_scanner</span>
+</button>
+<span class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] font-bold text-primary uppercase tracking-tight">Scan</span>
+</div>
 <a class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500" href="#">
 <span class="material-symbols-outlined text-[28px]">card_giftcard</span>
-<span class="text-[10px] font-medium">Rewards</span>
+<span class="text-[10px] font-medium uppercase tracking-tight">Rewards</span>
 </a>
 <a class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500" href="#">
 <span class="material-symbols-outlined text-[28px]">person</span>
-<span class="text-[10px] font-medium">Profile</span>
+<span class="text-[10px] font-medium uppercase tracking-tight">Profile</span>
 </a>
 </div>
-<div class="mt-5 flex justify-center">
+<div class="mt-8 flex justify-center">
 <div class="h-1.5 w-32 bg-slate-200 dark:bg-slate-800 rounded-full"></div>
 </div>
 </nav>
-<style type="text/tailwindcss">
-    .font-variation-fill {
-        font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 48;
-    }
-</style>
 
 </body></html>

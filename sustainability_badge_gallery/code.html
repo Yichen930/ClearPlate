@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sustainability Badge Gallery - ClearPlate</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13ec1a",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#102211",
+                        "neutral-light": "#eef2ee",
+                        "neutral-dark": "#1a2e1b",
+                        "text-main": "#0a140a",
+                        "text-muted": "#5a6e5a"
+                    },
+                    fontFamily: {
+                        "display": ["Epilogue", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            -webkit-tap-highlight-color: transparent;
+            user-select: none;
+        }
+        .badge-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+        .ios-blur {
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-display bg-background-light dark:bg-background-dark text-text-main min-h-screen">
+<!-- iOS Status Bar Placeholder -->
+<div class="h-11 w-full bg-background-light dark:bg-background-dark flex items-center justify-between px-6 sticky top-0 z-50">
+<span class="text-xs font-semibold">9:41</span>
+<div class="flex items-center gap-1.5">
+<span class="material-icons-round text-[14px]">signal_cellular_alt</span>
+<span class="material-icons-round text-[14px]">wifi</span>
+<span class="material-icons-round text-[14px]">battery_full</span>
+</div>
+</div>
+<!-- Main Content Container -->
+<main class="px-5 pb-32">
+<!-- Header -->
+<header class="py-6">
+<h1 class="text-3xl font-800 tracking-tight text-text-main dark:text-white">My Achievement Badges</h1>
+<p class="text-text-muted mt-1 font-medium">ClearPlate NTU Community</p>
+</header>
+<!-- Stats Overview -->
+<div class="bg-primary/10 dark:bg-primary/5 rounded-2xl p-4 mb-8 flex items-center justify-between border border-primary/20">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center shadow-lg shadow-primary/20">
+<span class="material-icons-round text-white">workspace_premium</span>
+</div>
+<div>
+<p class="text-xs font-bold uppercase tracking-wider text-primary">Progress</p>
+<p class="text-xl font-800 text-text-main dark:text-white">12 / 24 Earned</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-xs font-medium text-text-muted">Rank</p>
+<p class="text-sm font-bold text-text-main dark:text-white">Eco Guardian</p>
+</div>
+</div>
+<!-- Badge Section: Earned -->
+<section class="mb-10">
+<h2 class="text-sm font-bold uppercase tracking-widest text-text-muted mb-4 px-1">Earned Achievements</h2>
+<div class="badge-grid">
+<!-- 7-Day Streak -->
+<div class="flex flex-col items-center gap-2 group">
+<div class="w-full aspect-square bg-white dark:bg-neutral-dark rounded-2xl shadow-sm border border-neutral-light dark:border-white/5 flex items-center justify-center p-4 relative overflow-hidden active:scale-95 transition-transform">
+<div class="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent opacity-50"></div>
+<img alt="7 Day Streak" class="w-full h-full object-contain relative z-10" data-alt="Vibrant orange flame icon badge" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdjCXqAbWZYKLw0Dl6_mQFuA9CJpgn8iVPrIvazi7ivdoTWvqwuGKpfYITZh5ynnGl66y_VTO92z563fo4m_IKB_lNM6CG0saaDYvCXQcRDKs0W-3GOCtNhcel5asAgozr6Nog3kBPxB9-_2bO5FdGB56WCZAfhhP3mIjz3A9aHxjG8ANXLachAycUQjd4TWSW63jUOLSiGOxVNihxcMdKpsLAI5pX4xsmOZNVcIPWzio_DnPcWxPdEjUWbeHuzNwv3pXkNMY5bakA"/>
+</div>
+<span class="text-[11px] font-bold text-center leading-tight">7-Day Streak</span>
+</div>
+<!-- Portion Pro -->
+<div class="flex flex-col items-center gap-2">
+<div class="w-full aspect-square bg-white dark:bg-neutral-dark rounded-2xl shadow-sm border border-neutral-light dark:border-white/5 flex items-center justify-center p-4 relative overflow-hidden active:scale-95 transition-transform">
+<div class="absolute inset-0 bg-gradient-to-br from-blue-400/20 to-transparent opacity-30"></div>
+<img alt="Portion Pro" class="w-full h-full object-contain relative z-10" data-alt="Stylized balanced food plate icon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkWoSHd2nhLQg-ra9SOaJ5atGkp25Wlhd404yrh6NZdzh2BfUHeos05DfS31tTCMyFUsVOAqrNkKx6zJYsRHH77n4bBC_REhKkvS7nCrNISFnhOGNTjrAfWAFw_fTA1aXCXZmTSOqZa58KYYmKY5NQzoNh4lCDhGMpmLEE0aR6SgKNHpxmmNgoa8Hh50ngQSuadacLFD0rk4CMTCM6Fvf10Z3n2PVGqP-yUcq0Eu3ZqSmntzfk3N5OMPSMYTqgwfdg5DfBDx6AE-3X"/>
+</div>
+<span class="text-[11px] font-bold text-center leading-tight">Portion Pro</span>
+</div>
+<!-- Eco Warrior -->
+<div class="flex flex-col items-center gap-2">
+<div class="w-full aspect-square bg-white dark:bg-neutral-dark rounded-2xl shadow-sm border border-neutral-light dark:border-white/5 flex items-center justify-center p-4 relative overflow-hidden active:scale-95 transition-transform">
+<div class="absolute inset-0 bg-gradient-to-br from-primary to-transparent opacity-10"></div>
+<img alt="Eco Warrior" class="w-full h-full object-contain relative z-10" data-alt="Green leaf shield icon badge" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCh5_d9d_3Wqk7NU568J_z7P29VvDjwRvnLq2h6dHelri0AXwjfZDfOxm2AJPw3No4zneewagrMUY2_BmcVfrSyAgF4gCU94TVHrdYvb0BdNw0ouXBjbLODaeydtVf1Kv1RzaRliKlkF-8cxUWOzARsWEBrusG5XSA-4HXd-nUqltj9E9eWYfj6S2LY11jlDh6xz787e42n73ULJOIrD8fryrVpMeQL_a7OEBeA_t82l0w3diGM_FbMTHUIYHVjrRxO4qrCaLhVK2ZI"/>
+</div>
+<span class="text-[11px] font-bold text-center leading-tight">Eco Warrior</span>
+</div>
+<!-- Campus Saver -->
+<div class="flex flex-col items-center gap-2">
+<div class="w-full aspect-square bg-white dark:bg-neutral-dark rounded-2xl shadow-sm border border-neutral-light dark:border-white/5 flex items-center justify-center p-4 relative overflow-hidden active:scale-95 transition-transform">
+<img alt="Campus Saver" class="w-full h-full object-contain relative z-10" data-alt="Abstract campus building silhouette badge" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBtOyQuWMbMldpQTg211gqPDF1w67ek0xBvTfj37qX5N47tkxmMiLCzQQn-V1whRczH7Tc2_UTrdGEBs5-Mu9xBLYIvjQRHpiF6KG5nKMv1m3hMH15AvTP1lAYxUCwc214UnKJ2HTBC2k0TpwmE1jh_CPXmlx-_KfXZwWxXPEad6d48N-n4rg37Zzp69Me1paPKV5J_NnERR_tpTjWDXH572cwC3Kn9lfklVOlZqxlfnzKXG1C-bHSqBYQzpVBdGRkUAeykAJmjJl0G"/>
+</div>
+<span class="text-[11px] font-bold text-center leading-tight">Campus Saver</span>
+</div>
+<!-- Canteen Regular -->
+<div class="flex flex-col items-center gap-2">
+<div class="w-full aspect-square bg-white dark:bg-neutral-dark rounded-2xl shadow-sm border border-neutral-light dark:border-white/5 flex items-center justify-center p-4 relative overflow-hidden active:scale-95 transition-transform">
+<img alt="Canteen Regular" class="w-full h-full object-contain relative z-10" data-alt="Minimalist cutlery fork and spoon icon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuATJIqW1AOEQNqpyGe3urmhxbgaxPxDhOpy2zA6rbIcQsM_mw6y-6cQq3uaoAQ8IJ3dB63RwYnl5ofeikqC7hgu_gRhPBiAUQcyikS9WTfGbFPzNIW9uhEtzfOs1wdulW_PRVuHkvfI3w3hNEfana_83azDmxcHDDw1oULpbxep9zepGKoyViiKYZc9-4Yrp1wzQWAUYoKmzZGXN64S3weAWfiVc9wRiaT6N2-3ikRZWfigaxjxJdwMn6frIZwaQg6r_thKvJ_bquOR"/>
+</div>
+<span class="text-[11px] font-bold text-center leading-tight">Canteen Regular</span>
+</div>
+<!-- Carbon Fighter -->
+<div class="flex flex-col items-center gap-2">
+<div class="w-full aspect-square bg-white dark:bg-neutral-dark rounded-2xl shadow-sm border border-neutral-light dark:border-white/5 flex items-center justify-center p-4 relative overflow-hidden active:scale-95 transition-transform">
+<img alt="Carbon Fighter" class="w-full h-full object-contain relative z-10" data-alt="Mountain and clean air icon badge" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnV8SCcndA31dI29tNXv14k4kcHM6aE2jOLUjLnNJJpbOGU87O1a2aepwhgXA3K2Ccc0rWMoGyF1nLtEtftHzhFnuGJz_CJ1tdXutWHxVYAPscl53hR83HTQVosTKSbQ3gU6Q-AankkieVSJ8Gwy-E8QgrkIbmRXX4Ez9-2x5J0Mhli5r8ui5L1m2OBdVuhWA4LLD4wWTLd4AJCMdknANULNCBr0puKoDCaH-Xwsf-gxY8euQsuCtcpEYXEi4k79xUymogjscpQhvN"/>
+</div>
+<span class="text-[11px] font-bold text-center leading-tight">Carbon Fighter</span>
+</div>
+</div>
+</section>
+<!-- Badge Section: Locked -->
+<section>
+<h2 class="text-sm font-bold uppercase tracking-widest text-text-muted mb-4 px-1">Locked Achievements</h2>
+<div class="badge-grid opacity-60">
+<!-- Month of Green -->
+<div class="flex flex-col items-center gap-2 grayscale">
+<div class="w-full aspect-square bg-neutral-light/50 dark:bg-neutral-dark rounded-2xl border border-dashed border-neutral-300 dark:border-white/10 flex items-center justify-center p-4 relative">
+<div class="absolute inset-0 flex items-center justify-center z-20">
+<span class="material-icons-round text-text-muted text-3xl">lock</span>
+</div>
+<img alt="Month of Green" class="w-full h-full object-contain opacity-30" data-alt="Calendar with a leaf icon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsvWxfEI304r7ln_Wv1kZX2Xhg7TQDNkI6W_71lgj4KTYwwiGMWK57TQA4KHtky5lFXgqG1tW7HLsCJqK3A1I5Bdq1MY5QaM9IfCfhj-FlJEKRDomYFrEN8tYEq8DoVB6GAvJXOtjeDk7jBAResUvm6VgsUsdyfpkIXs27tq332k80zny5642BfrvSBjQ-8iW5Pj0xxl3Z5wge5R2lGJwCaTAXqixBlhAFSbacSSMoh22gXbmY4RGzZdEEb0-BQ0YUPf2rMwwFTdg4"/>
+</div>
+<span class="text-[11px] font-bold text-center leading-tight text-text-muted">Month of Green</span>
+</div>
+<!-- Zero Waste Hero -->
+<div class="flex flex-col items-center gap-2 grayscale">
+<div class="w-full aspect-square bg-neutral-light/50 dark:bg-neutral-dark rounded-2xl border border-dashed border-neutral-300 dark:border-white/10 flex items-center justify-center p-4 relative">
+<div class="absolute inset-0 flex items-center justify-center z-20">
+<span class="material-icons-round text-text-muted text-3xl">lock</span>
+</div>
+<img alt="Zero Waste Hero" class="w-full h-full object-contain opacity-30" data-alt="Gold trophy cup icon badge" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUk5ppHmdZrJz4q5Kn7qFpZwmjne6UOhwz4HEYSP_cwAA5stcW60CgfBU9vhk6HHtx1wQf4WmN4qRAmFCICYiecD3f5hH3evQDy9GK5UWbAaW2q3iisTc_tqKy4E1eTyxo1qk6W17pnoFsXq4a1QRMgY_jByabKlJFvuzYcbhjJTnOfdhjpV7zq3u8UnmBNxvgYujQEDk6YtSdAoJDltk9Mz_1NzvyK9VwoYd8ZcEpWHZ1VrtCFOOzg_sREsItTWrUY4TcgfuRN-p3"/>
+</div>
+<span class="text-[11px] font-bold text-center leading-tight text-text-muted">Zero Waste Hero</span>
+</div>
+<!-- Community Leader -->
+<div class="flex flex-col items-center gap-2 grayscale">
+<div class="w-full aspect-square bg-neutral-light/50 dark:bg-neutral-dark rounded-2xl border border-dashed border-neutral-300 dark:border-white/10 flex items-center justify-center p-4 relative">
+<div class="absolute inset-0 flex items-center justify-center z-20">
+<span class="material-icons-round text-text-muted text-3xl">lock</span>
+</div>
+<img alt="Community Leader" class="w-full h-full object-contain opacity-30" data-alt="People holding hands circle icon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAd1fjfI7YUtUi6NSnPFuO3U41_ynHVWgYXnvH9jSM45COXuV0R8vDqcwHCagsJX5CTxVHex858wIMkKV_kQ8jbJu339A2x-3khmWtOQiGjaOTSzguPCo_omMTK0pfjFEESsCQnfjAUGnzU-cdVLcOE1mppHS251Q9WKUrB2aXx5Qr3bUD3kqI4gnorVroEId38BoiqTgcZLAm48TTcXWU33PplPXJE5brzLI1vMNRN1lEqInn1nkES2stoA5XDnh6zaD8Vhv4NbhNm"/>
+</div>
+<span class="text-[11px] font-bold text-center leading-tight text-text-muted">Community Leader</span>
+</div>
+</div>
+</section>
+</main>
+<!-- Modal Backdrop (Hidden by default, shown for illustration) -->
+<div class="fixed inset-0 bg-black/40 ios-blur z-[60] flex items-center justify-center p-6 hidden">
+<!-- Badge Detail Pop-up -->
+<div class="bg-white dark:bg-neutral-dark w-full max-w-sm rounded-[2rem] overflow-hidden shadow-2xl relative">
+<button class="absolute top-6 right-6 w-8 h-8 flex items-center justify-center rounded-full bg-neutral-light dark:bg-white/10">
+<span class="material-icons-round text-sm">close</span>
+</button>
+<div class="pt-12 pb-8 px-8 flex flex-col items-center text-center">
+<div class="w-32 h-32 mb-6 relative">
+<div class="absolute inset-0 bg-primary/20 blur-2xl rounded-full"></div>
+<img alt="7 Day Streak" class="w-full h-full object-contain relative z-10" data-alt="Vibrant orange flame icon badge large" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtyxSazDiyx4zP7u0s-i0QTKu3V5MMUrJSJq2G8eUJfFplS0nmXyjI-i8hKCq-y2X-HbARS6XH26eenuBz4xG1TzK2DChWPERmdhSCVjH9EctJd6-kTDEj2maTGR70jL1qKdIV1S_fNu1HUpsFhw7QhzXYRgQkN98fEztosi14tAMg7WvdWXk8x-4Tt_uWUBxDmQ9PuaXX-frEdfkcignZKemXzK-tN55_JNjQICL_bQjKXQUfndp_XKJHYRO0ahWRiBHgzP61h5Ik"/>
+</div>
+<h3 class="text-2xl font-800 text-text-main dark:text-white mb-2">7-Day Streak</h3>
+<p class="text-text-muted font-medium mb-8 leading-relaxed">
+                    You've cleared your plate 7 days in a row! You've saved approximately 3.5kg of food waste this week.
+                </p>
+<button class="w-full bg-primary py-4 rounded-xl font-800 text-white flex items-center justify-center gap-2 shadow-lg shadow-primary/30 active:scale-95 transition-transform mb-3">
+<span class="material-icons-round">share</span>
+                    Share to Circle
+                </button>
+<p class="text-[10px] text-text-muted font-bold uppercase tracking-widest">Help inspire fellow NTU students</p>
+</div>
+</div>
+</div>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 right-0 bg-white/80 dark:bg-background-dark/80 ios-blur border-t border-neutral-light dark:border-white/5 px-6 pt-3 pb-8 z-50">
+<div class="flex items-center justify-between max-w-md mx-auto">
+<a class="flex flex-col items-center gap-1 text-text-muted" href="#">
+<span class="material-icons-round">home</span>
+<span class="text-[10px] font-bold">Home</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-text-muted" href="#">
+<span class="material-icons-round">camera_alt</span>
+<span class="text-[10px] font-bold">Clear</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<div class="relative">
+<span class="material-icons-round">emoji_events</span>
+<div class="absolute -top-1 -right-1 w-2 h-2 bg-primary rounded-full border-2 border-white dark:border-background-dark"></div>
+</div>
+<span class="text-[10px] font-bold">Badges</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-text-muted" href="#">
+<span class="material-icons-round">groups</span>
+<span class="text-[10px] font-bold">Circle</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-text-muted" href="#">
+<span class="material-icons-round">person_outline</span>
+<span class="text-[10px] font-bold">Profile</span>
+</a>
+</div>
+</nav>
+<!-- iOS Home Indicator -->
+<div class="fixed bottom-1 left-1/2 -translate-x-1/2 w-32 h-1 bg-text-main/20 dark:bg-white/20 rounded-full z-[60]"></div>
+</body></html>

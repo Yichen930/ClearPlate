@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Joint Challenge Progress Details</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "primary": "#0ff017",
+                "background-light": "#f5f8f6",
+                "background-dark": "#102211",
+              },
+              fontFamily: {
+                "display": ["Epilogue"]
+              },
+              borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+            },
+          },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Epilogue', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .ios-shadow {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        .progress-bar-container {
+            height: 12px;
+            background-color: rgba(15, 240, 23, 0.1);
+            border-radius: 999px;
+            overflow: hidden;
+        }
+        .progress-bar-fill {
+            height: 100%;
+            background-color: #0ff017;
+            border-radius: 999px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-800 dark:text-slate-100 min-h-screen">
+<!-- iOS Status Bar Spacer -->
+<div class="h-12 w-full"></div>
+<!-- Header Navigation -->
+<header class="px-5 py-4 flex items-center justify-between sticky top-0 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md z-50">
+<button class="w-10 h-10 flex items-center justify-center rounded-full bg-white dark:bg-slate-800 ios-shadow">
+<span class="material-icons text-slate-600 dark:text-slate-300">chevron_left</span>
+</button>
+<h1 class="text-lg font-bold tracking-tight">Weekly Zero-Waste Duo</h1>
+<button class="w-10 h-10 flex items-center justify-center rounded-full bg-white dark:bg-slate-800 ios-shadow">
+<span class="material-icons text-slate-600 dark:text-slate-300">more_horiz</span>
+</button>
+</header>
+<main class="px-5 pb-32">
+<!-- Hero Challenge Card -->
+<section class="mt-4 bg-white dark:bg-slate-900 rounded-xl p-6 ios-shadow border border-primary/10">
+<div class="flex justify-between items-start mb-6">
+<div>
+<span class="bg-primary/10 text-primary text-xs font-bold px-2 py-1 rounded uppercase tracking-wider">Active Challenge</span>
+<h2 class="text-2xl font-extrabold mt-2 leading-tight">NTU Eco-Warriors</h2>
+<p class="text-slate-500 text-sm mt-1">Ends in 3 days, 4 hours</p>
+</div>
+<div class="bg-primary/20 p-3 rounded-xl">
+<span class="material-icons text-primary text-3xl">eco</span>
+</div>
+</div>
+<!-- Comparison Bar -->
+<div class="space-y-6">
+<div class="space-y-2">
+<div class="flex justify-between items-end">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-slate-200 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="User profile photo avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcc7DJKhHUoCD4Ab_tvCu50v55yK8I8ebflARTInppi_aT7A1BR9CHqxBIHaNoHHFrXWT0tufUCfyG_XQcBBAf2StR-l_WwXy_ZFxwbvmgFDB0nkj-ITpNB7rwX3uhPS0vr_wAQVW4wahU_JQ5zI1NzsjRYY0UVtwCKMe_hfKRCTrTdfragyYxb3qyPb2P31W6VVvj1IFXtN7Gw5UkYUxaTiwR6rZ9_f_06KM56JAcUD-vH6Z57ZJ1yQUJ4-9ZGJ6KMkGw9E6wJQ1-"/>
+</div>
+<span class="font-bold text-sm">You</span>
+</div>
+<span class="font-bold text-primary">15g</span>
+</div>
+<div class="progress-bar-container">
+<div class="progress-bar-fill w-[30%]"></div>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between items-end">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-slate-200 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Friend profile photo avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8mmyrW_mkuRncoctSHgyv2wNzTS3JMdXPDQ8cHcb6gtKfk0lpEcatsDtjqcfFqgXXdN-P9dsydryYFzRbkPVLCqK_NMIEts4TpR3OIkK5ol_MFvpfInh5oKSFtlL9YJbyIE48-vPgDLujkv_bY3nvxElwSDg_ATgOel451yj9FhsdQOvBZdaVLkJWBk1b6oh7QerehaqfLsWDkMWR4aAahoGGZ67nRGWN1VOTZrUXh09vZmYraUXUtVZ2aqlvNNnunZtVXR5FSYFh"/>
+</div>
+<span class="font-bold text-sm">Sarah</span>
+</div>
+<span class="font-bold text-slate-400">12g</span>
+</div>
+<div class="progress-bar-container bg-slate-100 dark:bg-slate-800">
+<div class="h-full bg-slate-300 dark:bg-slate-700 w-[24%] rounded-full"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Shared Goal Section -->
+<section class="mt-6 bg-primary text-white rounded-xl p-6 shadow-lg shadow-primary/20">
+<div class="flex items-center justify-between mb-4">
+<h3 class="font-bold text-lg">Shared Goal</h3>
+<div class="flex items-center gap-1 bg-white/20 px-3 py-1 rounded-full text-xs font-semibold">
+<span class="material-icons text-xs">verified</span>
+<span>On Track</span>
+</div>
+</div>
+<div class="flex flex-col items-center text-center">
+<p class="text-white/80 text-sm mb-1">Target: Keep combined waste under</p>
+<p class="text-4xl font-extrabold mb-4">50g</p>
+<div class="w-full bg-white/20 h-3 rounded-full overflow-hidden">
+<div class="bg-white h-full w-[54%]"></div>
+</div>
+<p class="mt-3 text-sm font-medium">27g consumed / 23g remaining</p>
+</div>
+</section>
+<!-- Chat / Cheer Section -->
+<section class="mt-6">
+<h3 class="font-bold mb-4 px-1">Motivate Sarah</h3>
+<div class="bg-white dark:bg-slate-900 rounded-xl p-4 ios-shadow border border-slate-100 dark:border-slate-800">
+<div class="flex gap-2 overflow-x-auto pb-4 no-scrollbar">
+<button class="flex-shrink-0 bg-primary/10 text-primary border border-primary/20 rounded-full px-4 py-2 text-sm font-bold flex items-center gap-2">
+                        🔥 Keep it up!
+                    </button>
+<button class="flex-shrink-0 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-full px-4 py-2 text-sm font-bold flex items-center gap-2">
+                        🙌 Great job today!
+                    </button>
+<button class="flex-shrink-0 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-full px-4 py-2 text-sm font-bold flex items-center gap-2">
+                        🥗 Eco Hero!
+                    </button>
+</div>
+<div class="mt-4 border-t border-slate-100 dark:border-slate-800 pt-4">
+<div class="flex gap-3">
+<div class="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center">
+<span class="material-icons text-sm text-slate-400">chat</span>
+</div>
+<div class="flex-1">
+<div class="bg-slate-100 dark:bg-slate-800 p-3 rounded-xl rounded-tl-none">
+<p class="text-sm">"Hey! Almost at our goal for the week. Let's finish strong!"</p>
+</div>
+<span class="text-[10px] text-slate-400 mt-1 block px-1">Sent 12:45 PM</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Challenge Rules Accordion -->
+<section class="mt-6">
+<div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-100 dark:border-slate-800 ios-shadow overflow-hidden">
+<button class="w-full flex items-center justify-between p-4 focus:bg-slate-50 dark:focus:bg-slate-800 transition-colors">
+<div class="flex items-center gap-3">
+<span class="material-icons text-primary">gavel</span>
+<span class="font-bold">Challenge Rules</span>
+</div>
+<span class="material-icons text-slate-400">expand_more</span>
+</button>
+<div class="p-4 pt-0 border-t border-slate-50 dark:border-slate-800">
+<ul class="space-y-3 pt-4 text-sm text-slate-500 dark:text-slate-400">
+<li class="flex gap-2">
+<span class="text-primary font-bold">•</span>
+<span>Only food waste weighed at NTU Canteens counts toward the total.</span>
+</li>
+<li class="flex gap-2">
+<span class="text-primary font-bold">•</span>
+<span>Logs must be verified by scanning the waste station QR code.</span>
+</li>
+<li class="flex gap-2">
+<span class="text-primary font-bold">•</span>
+<span>The goal resets every Monday at 00:00 SGT.</span>
+</li>
+</ul>
+</div>
+</div>
+</section>
+</main>
+<!-- Fixed Bottom Tab Bar -->
+<nav class="fixed bottom-0 left-0 right-0 bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl border-t border-slate-200 dark:border-slate-800 pb-8 pt-3 px-6 z-50">
+<div class="flex justify-between items-center max-w-md mx-auto">
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-icons">dashboard</span>
+<span class="text-[10px] font-bold">Home</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-primary">
+<span class="material-icons">emoji_events</span>
+<span class="text-[10px] font-bold">Challenges</span>
+</button>
+<div class="relative -top-6">
+<button class="w-14 h-14 bg-primary text-white rounded-full shadow-lg shadow-primary/40 flex items-center justify-center border-4 border-background-light dark:border-background-dark">
+<span class="material-icons text-3xl">add</span>
+</button>
+</div>
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-icons">groups</span>
+<span class="text-[10px] font-bold">Friends</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-icons">person</span>
+<span class="text-[10px] font-bold">Profile</span>
+</button>
+</div>
+</nav>
+<!-- iOS Home Indicator -->
+<div class="fixed bottom-1 left-1/2 -translate-x-1/2 w-32 h-1 bg-slate-300 dark:bg-slate-700 rounded-full z-50"></div>
+</body></html>
