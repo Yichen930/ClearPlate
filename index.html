@@ -351,7 +351,7 @@ input:checked + .slider:before {
             </button>
             <div class="text-center">
                 <h1 class="text-lg font-bold">Chicken Rice</h1>
-                <p class="text-xs text-slate-500 dark:text-slate-400">Fine Food Canteen (NTU)</p>
+                <p class="text-xs text-slate-500 dark:text-slate-400">Koufu @ North Spine</p>
             </div>
             <div class="w-10"></div>
         </header>
@@ -385,19 +385,20 @@ input:checked + .slider:before {
                                 <span class="block text-xs text-slate-500">Perfect for light eaters</span>
                             </div>
                         </div>
-                        <span class="material-icons text-slate-300">radio_button_unchecked</span>
                     </button>
-                    <button onclick="selectPortion('regular')" class="flex items-center justify-between p-4 rounded-xl border-2 border-primary bg-primary/5 dark:bg-primary/10 transition-all">
+                    <button onclick="selectPortion('regular')" class="flex items-center justify-between p-4 rounded-xl border-2 border-primary bg-primary/5 dark:bg-primary/10 transition-all relative">
                         <div class="flex items-center space-x-4">
                             <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center">
                                 <span class="material-icons text-white text-lg">restaurant</span>
                             </div>
                             <div class="text-left">
-                                <span class="block font-bold text-primary">Regular (~100%)</span>
+                                <div class="flex items-center gap-2">
+                                    <span class="block font-bold text-primary">Regular (~100%)</span>
+                                    <span class="text-[10px] font-semibold text-primary bg-primary/20 px-2 py-0.5 rounded-full">AI Recommended</span>
+                                </div>
                                 <span class="block text-xs text-primary/70">Standard stall size</span>
                             </div>
                         </div>
-                        <span class="material-icons text-primary" style="font-size: 24px;">check_circle</span>
                     </button>
                     <button onclick="selectPortion('large')" class="flex items-center justify-between p-4 rounded-xl border-2 border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-800 hover:border-primary/50 transition-all">
                         <div class="flex items-center space-x-4">
@@ -409,7 +410,6 @@ input:checked + .slider:before {
                                 <span class="block text-xs text-slate-500">For a big appetite</span>
                             </div>
                         </div>
-                        <span class="material-icons text-slate-300">radio_button_unchecked</span>
                     </button>
                 </div>
             </section>
@@ -584,6 +584,92 @@ input:checked + .slider:before {
                     </div>
                 </div>
             </div>
+            
+            <!-- Personal Leaderboard -->
+            <div class="bg-white dark:bg-slate-900 rounded-xl p-6 ios-shadow border border-primary/5">
+                <div class="flex items-center justify-between mb-4">
+                    <div>
+                        <h3 class="text-sm font-semibold flex items-center gap-2">
+                            <span class="material-icons-round text-primary text-xl">emoji_events</span>
+                            Personal Leaderboard
+                        </h3>
+                        <p class="text-[10px] text-slate-400 mt-0.5">for this week</p>
+                    </div>
+                    <span class="text-xs text-slate-400">Hall 4</span>
+                </div>
+                <div class="space-y-3">
+                    <div class="flex items-center gap-3 p-3 bg-primary/5 rounded-lg border border-primary/10">
+                        <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white font-bold text-sm">1</div>
+                        <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
+                            <span class="material-icons-round text-primary">person</span>
+                        </div>
+                        <div class="flex-1">
+                            <p class="text-sm font-bold text-slate-800 dark:text-white">You (Sophie)</p>
+                            <p class="text-xs text-slate-500">Hall 4</p>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-sm font-bold text-primary">120g</p>
+                            <p class="text-[10px] text-slate-400">waste</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3 p-3 bg-slate-50 dark:bg-slate-800/50 rounded-lg">
+                        <div class="w-8 h-8 rounded-full bg-slate-300 dark:bg-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-300 font-bold text-sm">2</div>
+                        <div class="w-10 h-10 rounded-full bg-slate-200 dark:bg-slate-700 flex items-center justify-center flex-shrink-0">
+                            <span class="material-icons-round text-slate-500 dark:text-slate-400">person</span>
+                        </div>
+                        <div class="flex-1">
+                            <p class="text-sm font-bold text-slate-800 dark:text-white">Alex Tan</p>
+                            <p class="text-xs text-slate-500">Hall 4</p>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-sm font-bold text-slate-600 dark:text-slate-300">145g</p>
+                            <p class="text-[10px] text-slate-400">waste</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3 p-3 bg-slate-50 dark:bg-slate-800/50 rounded-lg">
+                        <div class="w-8 h-8 rounded-full bg-amber-400 flex items-center justify-center text-white font-bold text-sm">3</div>
+                        <div class="w-10 h-10 rounded-full bg-amber-100 dark:bg-amber-900/30 flex items-center justify-center flex-shrink-0">
+                            <span class="material-icons-round text-amber-600 dark:text-amber-400">person</span>
+                        </div>
+                        <div class="flex-1">
+                            <p class="text-sm font-bold text-slate-800 dark:text-white">Jamie Lee</p>
+                            <p class="text-xs text-slate-500">Hall 4</p>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-sm font-bold text-slate-600 dark:text-slate-300">158g</p>
+                            <p class="text-[10px] text-slate-400">waste</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3 p-3 bg-slate-50 dark:bg-slate-800/50 rounded-lg">
+                        <div class="w-8 h-8 rounded-full bg-slate-300 dark:bg-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-300 font-bold text-sm">4</div>
+                        <div class="w-10 h-10 rounded-full bg-slate-200 dark:bg-slate-700 flex items-center justify-center flex-shrink-0">
+                            <span class="material-icons-round text-slate-500 dark:text-slate-400">person</span>
+                        </div>
+                        <div class="flex-1">
+                            <p class="text-sm font-bold text-slate-800 dark:text-white">Ryan Chen</p>
+                            <p class="text-xs text-slate-500">Hall 4</p>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-sm font-bold text-slate-600 dark:text-slate-300">172g</p>
+                            <p class="text-[10px] text-slate-400">waste</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3 p-3 bg-slate-50 dark:bg-slate-800/50 rounded-lg">
+                        <div class="w-8 h-8 rounded-full bg-slate-300 dark:bg-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-300 font-bold text-sm">5</div>
+                        <div class="w-10 h-10 rounded-full bg-slate-200 dark:bg-slate-700 flex items-center justify-center flex-shrink-0">
+                            <span class="material-icons-round text-slate-500 dark:text-slate-400">person</span>
+                        </div>
+                        <div class="flex-1">
+                            <p class="text-sm font-bold text-slate-800 dark:text-white">Maya Wong</p>
+                            <p class="text-xs text-slate-500">Hall 4</p>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-sm font-bold text-slate-600 dark:text-slate-300">189g</p>
+                            <p class="text-[10px] text-slate-400">waste</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <!-- Community View -->
         <div id="community-view" style="display: none;">
@@ -649,6 +735,92 @@ input:checked + .slider:before {
                     * Based on average post-meal weighing data across all NTU halls.
                 </p>
             </div>
+            
+            <!-- Community Leaderboard -->
+            <div class="bg-white dark:bg-slate-900 rounded-xl p-6 ios-shadow border border-primary/5">
+                <div class="flex items-center justify-between mb-4">
+                    <div>
+                        <h3 class="text-sm font-semibold flex items-center gap-2">
+                            <span class="material-icons-round text-primary text-xl">leaderboard</span>
+                            Community Leaderboard
+                        </h3>
+                        <p class="text-[10px] text-slate-400 mt-0.5">for this week</p>
+                    </div>
+                    <span class="text-xs text-slate-400">NTU Wide</span>
+                </div>
+                <div class="space-y-3">
+                    <div class="flex items-center gap-3 p-3 bg-gradient-to-r from-yellow-400/10 to-yellow-500/5 rounded-lg border border-yellow-400/20">
+                        <div class="w-8 h-8 rounded-full bg-yellow-400 flex items-center justify-center text-white font-bold text-sm flex-shrink-0">1</div>
+                        <div class="w-10 h-10 rounded-full bg-yellow-100 dark:bg-yellow-900/30 flex items-center justify-center flex-shrink-0">
+                            <span class="material-icons-round text-yellow-600 dark:text-yellow-400">workspace_premium</span>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <p class="text-sm font-bold text-slate-800 dark:text-white truncate">Hall 1 - Block A</p>
+                            <p class="text-xs text-slate-500 truncate">North Hill • 1,234 students</p>
+                        </div>
+                        <div class="text-right flex-shrink-0">
+                            <p class="text-sm font-bold text-yellow-600 dark:text-yellow-400">45kg</p>
+                            <p class="text-[10px] text-slate-400">waste</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3 p-3 bg-slate-50 dark:bg-slate-800/50 rounded-lg">
+                        <div class="w-8 h-8 rounded-full bg-slate-300 dark:bg-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-300 font-bold text-sm flex-shrink-0">2</div>
+                        <div class="w-10 h-10 rounded-full bg-slate-200 dark:bg-slate-700 flex items-center justify-center flex-shrink-0">
+                            <span class="material-icons-round text-slate-500 dark:text-slate-400">apartment</span>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <p class="text-sm font-bold text-slate-800 dark:text-white truncate">Hall 2 - Block B</p>
+                            <p class="text-xs text-slate-500 truncate">South Spine • 1,156 students</p>
+                        </div>
+                        <div class="text-right flex-shrink-0">
+                            <p class="text-sm font-bold text-slate-600 dark:text-slate-300">52kg</p>
+                            <p class="text-[10px] text-slate-400">waste</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3 p-3 bg-primary/5 rounded-lg border border-primary/10">
+                        <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white font-bold text-sm flex-shrink-0">3</div>
+                        <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
+                            <span class="material-icons-round text-primary">apartment</span>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <p class="text-sm font-bold text-slate-800 dark:text-white truncate">Hall 4 - Block C</p>
+                            <p class="text-xs text-slate-500 truncate">North Spine • 987 students</p>
+                        </div>
+                        <div class="text-right flex-shrink-0">
+                            <p class="text-sm font-bold text-primary">58kg</p>
+                            <p class="text-[10px] text-slate-400">waste</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3 p-3 bg-slate-50 dark:bg-slate-800/50 rounded-lg">
+                        <div class="w-8 h-8 rounded-full bg-slate-300 dark:bg-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-300 font-bold text-sm flex-shrink-0">4</div>
+                        <div class="w-10 h-10 rounded-full bg-slate-200 dark:bg-slate-700 flex items-center justify-center flex-shrink-0">
+                            <span class="material-icons-round text-slate-500 dark:text-slate-400">apartment</span>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <p class="text-sm font-bold text-slate-800 dark:text-white truncate">Hall 6 - Block D</p>
+                            <p class="text-xs text-slate-500 truncate">West Gate • 1,089 students</p>
+                        </div>
+                        <div class="text-right flex-shrink-0">
+                            <p class="text-sm font-bold text-slate-600 dark:text-slate-300">64kg</p>
+                            <p class="text-[10px] text-slate-400">waste</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3 p-3 bg-slate-50 dark:bg-slate-800/50 rounded-lg">
+                        <div class="w-8 h-8 rounded-full bg-slate-300 dark:bg-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-300 font-bold text-sm flex-shrink-0">5</div>
+                        <div class="w-10 h-10 rounded-full bg-slate-200 dark:bg-slate-700 flex items-center justify-center flex-shrink-0">
+                            <span class="material-icons-round text-slate-500 dark:text-slate-400">apartment</span>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <p class="text-sm font-bold text-slate-800 dark:text-white truncate">Hall 8 - Block E</p>
+                            <p class="text-xs text-slate-500 truncate">East Gate • 1,012 students</p>
+                        </div>
+                        <div class="text-right flex-shrink-0">
+                            <p class="text-sm font-bold text-slate-600 dark:text-slate-300">72kg</p>
+                            <p class="text-[10px] text-slate-400">waste</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </main>
 </div>
@@ -666,8 +838,14 @@ input:checked + .slider:before {
         </div>
         <header class="px-6 py-4 flex justify-between items-center">
             <h1 class="text-2xl font-bold tracking-tight">Your Rewards</h1>
-            <div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary">
-                <img class="w-full h-full object-cover" alt="User profile avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAz3c_EknA6iXi6hyiliLzpAMrny_JAwanbc1EUXZ4Tbd__mnk11TNnGrd7B_I220KsGcQ8whmgd0V9CFk-YXklH9kNGRgYAYAJ-_jo-0A2vUdSeT9LFUAYmkq4JAxPJ4kiW7TsmlvymK8Sxao4aNA8NLtyakmIMXgdEX6o8IrJGUXRWkJ1io2iLhKkW6OdqRwT7HLpy3fnPDCYxrFIl0L4PEcbqXhlIcPgxT1MkCSvRlrT6FoiFj73QBlAwICWiOFbDxN-ScEaOlyW"/>
+            <div class="flex items-center gap-3">
+                <button onclick="showPage('my-vouchers')" class="relative">
+                    <span class="material-icons-round text-slate-600 dark:text-slate-300 text-2xl">confirmation_number</span>
+                    <span id="voucher-badge" class="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full text-white text-[8px] flex items-center justify-center font-bold" style="display: none;">0</span>
+                </button>
+                <div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary">
+                    <img class="w-full h-full object-cover" alt="User profile avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAz3c_EknA6iXi6hyiliLzpAMrny_JAwanbc1EUXZ4Tbd__mnk11TNnGrd7B_I220KsGcQ8whmgd0V9CFk-YXklH9kNGRgYAYAJ-_jo-0A2vUdSeT9LFUAYmkq4JAxPJ4kiW7TsmlvymK8Sxao4aNA8NLtyakmIMXgdEX6o8IrJGUXRWkJ1io2iLhKkW6OdqRwT7HLpy3fnPDCYxrFIl0L4PEcbqXhlIcPgxT1MkCSvRlrT6FoiFj73QBlAwICWiOFbDxN-ScEaOlyW"/>
+                </div>
             </div>
         </header>
         <div class="px-6 py-2">
@@ -716,7 +894,7 @@ input:checked + .slider:before {
                             <span class="text-[10px] text-neutral-400 font-bold uppercase">Credits</span>
                         </div>
                     </div>
-                    <button onclick="redeemReward(100)" class="w-full py-3 bg-primary hover:bg-primary/90 text-white rounded-lg font-bold transition-all active:scale-[0.98]">Redeem Now</button>
+                    <button onclick="redeemReward(100, '$1 Off Next Meal', 'Valid at North Spine Plaza & Canteen 2', 'https://lh3.googleusercontent.com/aida-public/AB6AXuDASSYdVt6O8IV8hK96TiKamd6u3YmJpQ_eQX1hdZkS2AVrGsaOQSQVoExWyt2Qy-qpYF641qxm38R9Me8kM_UaytiaLAGQ3EcJVP5priXfChA9yVFb8EUfRklm8kzgEUGthc6eHuYAFhtdx7bIP45Dd5kaOAo3NcWpaPXVK78ZmlxE_8_hHa4FV_asFyj9Lppu2E0jMQ3BsUWTBq1GPdXh9gXJ5Rc_ze9byuvrt3pamBBw_mJPQ6QbPRNf1VLuQvinavTfa1bAs_ib', 'Food Voucher')" class="w-full py-3 bg-primary hover:bg-primary/90 text-white rounded-lg font-bold transition-all active:scale-[0.98]">Redeem Now</button>
                 </div>
             </div>
             <div class="bg-white dark:bg-neutral-900 rounded-xl overflow-hidden shadow-sm border border-neutral-100 dark:border-neutral-800 flex flex-col">
@@ -738,7 +916,7 @@ input:checked + .slider:before {
                             <span class="text-[10px] text-neutral-400 font-bold uppercase">Credits</span>
                         </div>
                     </div>
-                    <button onclick="redeemReward(150)" class="w-full py-3 bg-primary hover:bg-primary/90 text-white rounded-lg font-bold transition-all active:scale-[0.98]">Redeem Now</button>
+                    <button onclick="redeemReward(150, 'Free Drink at Koufu', 'Choice of Coffee, Tea or Milo', 'https://lh3.googleusercontent.com/aida-public/AB6AXuAuwCMdqA2G7M90UlVaOzYdwlVWZauLcTK5uxhQaktw--FhFxk0ui_Zxu4UgcWOKOHBpDJyXWjDVSVmwK1B534ILJIrD33BX3i1bdtcb-D6bXkxowArFDJy6LiKbbzn94hBlmKeaN6UWyAPhJ9N7M44mhKwUizyeve_VOaSCJJroKtDSAoil8Bq6Sp1FgBMreXRyKkdHgv7_HltKISfvREcq8M7St08G9PT7Ba9RLb8aNEODoSwLszVGqZWWP7F8JszjGDH2dM1CQvC', 'Beverage')" class="w-full py-3 bg-primary hover:bg-primary/90 text-white rounded-lg font-bold transition-all active:scale-[0.98]">Redeem Now</button>
                 </div>
             </div>
             <div class="bg-white dark:bg-neutral-900 rounded-xl overflow-hidden shadow-sm border border-neutral-100 dark:border-neutral-800 flex flex-col opacity-90">
@@ -1273,6 +1451,39 @@ input:checked + .slider:before {
     </div>
 </div>
 
+<!-- My Vouchers Page -->
+<div id="my-vouchers" class="page">
+    <div class="max-w-[430px] mx-auto min-h-screen bg-background-light dark:bg-background-dark relative flex flex-col pb-24">
+        <div class="h-12 flex items-center justify-between px-8 pt-4">
+            <span class="text-sm font-semibold">9:41</span>
+            <div class="flex gap-1.5 items-center">
+                <span class="material-icons text-base" style="font-size: 16px;">signal_cellular_alt</span>
+                <span class="material-icons text-base" style="font-size: 16px;">wifi</span>
+                <span class="material-icons text-base" style="font-size: 16px;">battery_full</span>
+            </div>
+        </div>
+        <header class="px-6 py-4 flex items-center gap-4">
+            <button onclick="showPage('rewards')" class="w-10 h-10 flex items-center justify-center rounded-full bg-white dark:bg-slate-800 shadow-sm">
+                <span class="material-icons-round text-slate-600 dark:text-slate-300">arrow_back</span>
+            </button>
+            <h1 class="text-2xl font-bold tracking-tight flex-1">My Vouchers</h1>
+        </header>
+        <main class="px-6 space-y-4 flex-1">
+            <div id="vouchers-list" class="space-y-4">
+                <!-- Vouchers will be dynamically inserted here -->
+            </div>
+            <div id="empty-vouchers" class="flex flex-col items-center justify-center py-16 text-center" style="display: none;">
+                <div class="w-24 h-24 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                    <span class="material-icons-round text-primary text-5xl">confirmation_number</span>
+                </div>
+                <h3 class="text-lg font-bold text-slate-800 dark:text-white mb-2">No Vouchers Yet</h3>
+                <p class="text-sm text-slate-500 dark:text-slate-400 mb-6">Redeem vouchers from the Rewards Marketplace to see them here.</p>
+                <button onclick="showPage('rewards')" class="px-6 py-3 bg-primary text-white rounded-lg font-bold">Browse Rewards</button>
+            </div>
+        </main>
+    </div>
+</div>
+
 <!-- Toast Notification -->
 <div id="toast" class="fixed top-20 left-1/2 -translate-x-1/2 bg-slate-900 text-white px-6 py-3 rounded-full shadow-lg z-[100] flex items-center gap-2" style="display: none;">
     <span class="material-icons-round text-white">celebration</span>
@@ -1335,6 +1546,7 @@ input:checked + .slider:before {
 let currentPage = 'home';
 let credits = 450;
 let selectedPortion = 'regular';
+let redeemedVouchers = [];
 
 function showPage(pageId) {
     document.querySelectorAll('.page').forEach(page => {
@@ -1363,6 +1575,7 @@ function showPage(pageId) {
             'home': 0,
             'analytics': 1,
             'rewards': 2,
+            'my-vouchers': 2, // My vouchers shows Rewards as active
             'profile': 3,
             'badge-gallery': 3, // Badge gallery shows Profile as active
             'friend-circle': 0, // Friend circle shows Home as active
@@ -1393,6 +1606,16 @@ function showPage(pageId) {
         if (pageId === 'badge-gallery') {
             updateBadgeCount();
         }
+        
+        // Render vouchers when viewing my vouchers page
+        if (pageId === 'my-vouchers') {
+            renderVouchers();
+        }
+        
+        // Update voucher badge when viewing rewards page
+        if (pageId === 'rewards') {
+            updateVoucherBadge();
+        }
     }
 }
 
@@ -1400,25 +1623,106 @@ function selectPortion(size) {
     selectedPortion = size;
     const scales = { small: 0.7, regular: 1.0, large: 1.3 };
     const plateContainer = document.getElementById('plate-container');
-    plateContainer.style.transform = `scale(${scales[size]})`;
+    if (plateContainer) {
+        plateContainer.style.transform = `scale(${scales[size]})`;
+    }
     
-    // Update button states
-    document.querySelectorAll('#portion-selection button[onclick^="selectPortion"]').forEach(btn => {
+    // Get all buttons
+    const buttons = document.querySelectorAll('#portion-selection button[onclick^="selectPortion"]');
+    
+    buttons.forEach(btn => {
+        // Reset border and background
         btn.classList.remove('border-primary', 'bg-primary/5', 'dark:bg-primary/10');
         btn.classList.add('border-slate-100', 'dark:border-slate-800', 'bg-white', 'dark:bg-slate-800');
-        const icon = btn.querySelector('.material-icons:last-child');
-        icon.textContent = 'radio_button_unchecked';
-        icon.classList.remove('text-primary');
-        icon.classList.add('text-slate-300');
+        
+        // Reset icon container - find the first div inside the flex container
+        const flexContainer = btn.querySelector('div.flex.items-center');
+        if (flexContainer) {
+            const iconContainer = flexContainer.children[0];
+            if (iconContainer) {
+                iconContainer.classList.remove('bg-primary');
+                iconContainer.classList.add('bg-primary/10');
+                const icon = iconContainer.querySelector('.material-icons');
+                if (icon) {
+                    icon.classList.remove('text-white');
+                    icon.classList.add('text-primary');
+                }
+            }
+            
+            // Reset text colors
+            const textContainer = flexContainer.children[1];
+            if (textContainer) {
+                // Check if this is the regular button with AI Recommended badge
+                const titleContainer = textContainer.querySelector('div.flex.items-center');
+                if (titleContainer) {
+                    // This is the regular button - update the title span
+                    const title = titleContainer.querySelector('span:first-child');
+                    if (title) {
+                        title.classList.remove('text-primary');
+                    }
+                } else {
+                    // This is small or large button
+                    const title = textContainer.querySelector('span:first-child');
+                    if (title) {
+                        title.classList.remove('text-primary');
+                    }
+                }
+                const subtitle = textContainer.querySelector('span:last-child');
+                if (subtitle) {
+                    subtitle.classList.remove('text-primary/70');
+                    subtitle.classList.add('text-slate-500');
+                }
+            }
+        }
     });
     
-    const activeBtn = event.target.closest('button');
-    activeBtn.classList.remove('border-slate-100', 'dark:border-slate-800', 'bg-white', 'dark:bg-slate-800');
-    activeBtn.classList.add('border-primary', 'bg-primary/5', 'dark:bg-primary/10');
-    const activeIcon = activeBtn.querySelector('.material-icons:last-child');
-    activeIcon.textContent = 'check_circle';
-    activeIcon.classList.remove('text-slate-300');
-    activeIcon.classList.add('text-primary');
+    // Set selected button state
+    const selectedBtn = document.querySelector(`#portion-selection button[onclick="selectPortion('${size}')"]`);
+    if (selectedBtn) {
+        // Update border and background
+        selectedBtn.classList.remove('border-slate-100', 'dark:border-slate-800', 'bg-white', 'dark:bg-slate-800');
+        selectedBtn.classList.add('border-primary', 'bg-primary/5', 'dark:bg-primary/10');
+        
+        // Update icon container
+        const flexContainer = selectedBtn.querySelector('div.flex.items-center');
+        if (flexContainer) {
+            const iconContainer = flexContainer.children[0];
+            if (iconContainer) {
+                iconContainer.classList.remove('bg-primary/10');
+                iconContainer.classList.add('bg-primary');
+                const icon = iconContainer.querySelector('.material-icons');
+                if (icon) {
+                    icon.classList.remove('text-primary');
+                    icon.classList.add('text-white');
+                }
+            }
+            
+            // Update text colors
+            const textContainer = flexContainer.children[1];
+            if (textContainer) {
+                // Check if this is the regular button with AI Recommended badge
+                const titleContainer = textContainer.querySelector('div.flex.items-center');
+                if (titleContainer) {
+                    // This is the regular button - update the title span
+                    const title = titleContainer.querySelector('span:first-child');
+                    if (title) {
+                        title.classList.add('text-primary');
+                    }
+                } else {
+                    // This is small or large button
+                    const title = textContainer.querySelector('span:first-child');
+                    if (title) {
+                        title.classList.add('text-primary');
+                    }
+                }
+                const subtitle = textContainer.querySelector('span:last-child');
+                if (subtitle) {
+                    subtitle.classList.remove('text-slate-500');
+                    subtitle.classList.add('text-primary/70');
+                }
+            }
+        }
+    }
 }
 
 function confirmOrder() {
@@ -1486,15 +1790,104 @@ function showNotifications() {
     }
 }
 
-function redeemReward(cost) {
+function redeemReward(cost, voucherName, voucherDescription, voucherImage, voucherType) {
     if (credits >= cost) {
         if (confirm(`Redeem this reward for ${cost} credits?`)) {
             credits -= cost;
             updateCredits();
-            alert('Reward redeemed successfully!');
+            
+            // Add voucher to redeemed list
+            const voucher = {
+                id: Date.now(),
+                name: voucherName,
+                description: voucherDescription,
+                image: voucherImage,
+                type: voucherType,
+                redeemedAt: new Date(),
+                cost: cost
+            };
+            redeemedVouchers.push(voucher);
+            
+            // Update voucher badge
+            updateVoucherBadge();
+            
+            // Navigate to my vouchers page
+            showPage('my-vouchers');
+            showToast('Voucher redeemed successfully!');
         }
     } else {
         alert('Insufficient credits!');
+    }
+}
+
+function updateVoucherBadge() {
+    const badge = document.getElementById('voucher-badge');
+    if (badge) {
+        if (redeemedVouchers.length > 0) {
+            badge.style.display = 'flex';
+            badge.textContent = redeemedVouchers.length;
+        } else {
+            badge.style.display = 'none';
+        }
+    }
+}
+
+function renderVouchers() {
+    const vouchersList = document.getElementById('vouchers-list');
+    const emptyState = document.getElementById('empty-vouchers');
+    
+    if (!vouchersList || !emptyState) return;
+    
+    if (redeemedVouchers.length === 0) {
+        vouchersList.style.display = 'none';
+        emptyState.style.display = 'flex';
+    } else {
+        vouchersList.style.display = 'block';
+        emptyState.style.display = 'none';
+        
+        vouchersList.innerHTML = redeemedVouchers.map(voucher => {
+            const dateStr = voucher.redeemedAt.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+            const timeStr = voucher.redeemedAt.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
+            
+            return `
+                <div class="bg-white dark:bg-neutral-900 rounded-xl overflow-hidden shadow-sm border border-neutral-100 dark:border-neutral-800">
+                    <div class="relative h-40">
+                        <img class="w-full h-full object-cover" alt="${voucher.name}" src="${voucher.image}">
+                        <div class="absolute top-3 right-3 bg-white/90 dark:bg-black/80 backdrop-blur-md px-3 py-1 rounded-full flex items-center gap-1">
+                            <span class="material-icons text-primary text-sm">confirmation_number</span>
+                            <span class="text-xs font-bold">${voucher.type}</span>
+                        </div>
+                        <div class="absolute bottom-3 left-3 bg-primary text-white px-3 py-1 rounded-full text-xs font-bold">
+                            REDEEMED
+                        </div>
+                    </div>
+                    <div class="p-4 flex flex-col gap-3">
+                        <div>
+                            <h3 class="font-bold text-lg leading-tight">${voucher.name}</h3>
+                            <p class="text-sm text-neutral-500 dark:text-neutral-400 mt-1">${voucher.description}</p>
+                        </div>
+                        <div class="flex items-center justify-between pt-3 border-t border-neutral-100 dark:border-neutral-800">
+                            <div class="flex items-center gap-2 text-xs text-neutral-500 dark:text-neutral-400">
+                                <span class="material-icons-round text-sm">schedule</span>
+                                <span>Redeemed ${dateStr} at ${timeStr}</span>
+                            </div>
+                            <button onclick="showVoucherCode(${voucher.id})" class="px-4 py-2 bg-primary/10 text-primary rounded-lg font-bold text-sm hover:bg-primary/20 transition-colors">
+                                Show Code
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }).join('');
+    }
+}
+
+function showVoucherCode(voucherId) {
+    const voucher = redeemedVouchers.find(v => v.id === voucherId);
+    if (voucher) {
+        // Generate a simple code based on voucher ID
+        const code = 'CP' + voucherId.toString().slice(-6).toUpperCase();
+        alert(`Your voucher code:\n\n${code}\n\nShow this code at the counter to redeem your voucher.`);
     }
 }
 
@@ -1584,6 +1977,7 @@ function simulateExternalScan() {
 
 // Initialize
 showPage('home');
+updateVoucherBadge();
 
 // Auto-simulate a scan after 3 seconds for demo (remove in production)
 setTimeout(() => {
